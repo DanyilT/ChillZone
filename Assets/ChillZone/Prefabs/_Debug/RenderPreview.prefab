@@ -1,0 +1,131 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4574373373922695054
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 181297605997235032}
+  - component: {fileID: 2919822618120158986}
+  - component: {fileID: 3088355073732019803}
+  - component: {fileID: 2651667426635214149}
+  - component: {fileID: 8742297381267083273}
+  m_Layer: 0
+  m_Name: RenderPreview
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &181297605997235032
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4574373373922695054}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2919822618120158986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4574373373922695054}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef1b0c7da133e45b4b56bb68c8ab57ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  config: {fileID: 0}
+  useSimulatorDevice: 0
+  simulatedCamera: 4
+  simulatedCutoutWidth: 140
+  simulatedStatusBarHeight: 100
+  panelColor: {r: 0, g: 0, b: 0, a: 0.6}
+  leftColor: {r: 0.2, g: 0.6, b: 1, a: 0.85}
+  rightColor: {r: 1, g: 0.55, b: 0.2, a: 0.85}
+  cutoutColor: {r: 0.9, g: 0.1, b: 0.1, a: 0.6}
+--- !u!114 &3088355073732019803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4574373373922695054}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2181b673795574655813dcee105faf97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source: {fileID: 0}
+  mode: 0
+  groupName: 
+  buttonId: 
+  singleCorner: 4
+--- !u!114 &2651667426635214149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4574373373922695054}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d82ad7ba91c4041aaa8520c91cad99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  config: {fileID: 0}
+--- !u!114 &8742297381267083273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4574373373922695054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34a35c7946ba048409449c48295efce7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoringConfig: {fileID: 0}
+  throwConfig: {fileID: 0}
+  mockScore: 150
+  mockThrowCount: 5
+  showFlash: 1
+  mockFlashPoints: 18
+  mockTotalMultiplier: 1.8
+  mockDifficultyLabel: "Spin \xD71.8"
+  scoreLabelAnchorMin: {x: 0, y: 1}
+  scoreLabelAnchorMax: {x: 0, y: 1}
+  scoreLabelPivot: {x: 0, y: 1}
+  scoreLabelOffset: {x: 32, y: -32}
+  scoreLabelSize: {x: 400, y: 80}
+  scoreFontSize: 48
+  scoreColor: {r: 1, g: 0.95, b: 0.4, a: 1}
+  flashLabelAnchorMin: {x: 0, y: 1}
+  flashLabelAnchorMax: {x: 0, y: 1}
+  flashLabelPivot: {x: 0, y: 1}
+  flashLabelOffset: {x: 32, y: -120}
+  flashLabelSize: {x: 500, y: 80}
+  flashFontSize: 52
+  flashColor: {r: 1, g: 0.85, b: 0.1, a: 1}
+  modeLabelAnchorMin: {x: 1, y: 1}
+  modeLabelAnchorMax: {x: 1, y: 1}
+  modeLabelPivot: {x: 1, y: 1}
+  modeLabelOffset: {x: -32, y: -32}
+  modeLabelSize: {x: 220, y: 56}
+  modeFontSize: 28
+  modeColor: {r: 1, g: 1, b: 1, a: 0.75}
+  modeBackgroundColor: {r: 0, g: 0, b: 0, a: 0.4}
+  referenceResolution: {x: 1080, y: 1920}

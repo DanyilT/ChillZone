@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d860eaf79e7f4e1d95818e12718d411, type: 3}
+  m_Name: ContentItem
+  m_EditorClassIdentifier: 
+  cellBackground:
+    color: {r: 1, g: 1, b: 1, a: 0.011764706}
+    imageShape: 1
+    cornerRadius: 24
+  selectedColor: {r: 0, g: 0, b: 0, a: 0.5019608}
+  padding:
+    m_Left: 25
+    m_Right: 25
+    m_Top: 25
+    m_Bottom: 25
+  spacing: 20
+  iconSize: 150
+  iconShineShader: {fileID: 4800000, guid: 1f1e14613b908410f9778dc9f5b83bb9, type: 3}
+  iconOutlineDistance: 4
+  defaultLockedIcon: {fileID: 21300000, guid: 730b131a23a864b0a983a11ec86952e6, type: 3}
+  nameTextConfig:
+    fontSize: 28
+    enableAutoSizing: 1
+    fontSizeMin: 16
+    fontSizeMax: 48
+    fontStyle: 1
+    color: {r: 1, g: 1, b: 1, a: 1}
+    alignment: 514
+    fontMaterial: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
+  nameOutlineWidth: 0.2

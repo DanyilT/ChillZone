@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13baa25b88d304de5ad789f34d452435, type: 3}
+  m_Name: AdaptiveHeaderConfig
+  m_EditorClassIdentifier: 
+  useStatusBarHeight: 1
+  fixedHeight: 100
+  minHeight: 80
+  leftPanelRatio: 0.6
+  cutoutLeftPanelRatio: 0.6
+  headerSpacing: 20
+  headerPadding:
+    m_Left: 20
+    m_Right: 20
+    m_Top: 10
+    m_Bottom: 10
+  useSafeArea: 0
+  useAdaptiveHeader: 1
+  useCollapse: 1

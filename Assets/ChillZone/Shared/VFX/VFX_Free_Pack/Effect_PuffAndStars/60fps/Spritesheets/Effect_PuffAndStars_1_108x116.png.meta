@@ -1,0 +1,1438 @@
+fileFormatVersion: 2
+guid: 805777fd76ed14f78a3dc361c0922b2d
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Effect_PuffAndStars_1_108x116_000
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 812
+        width: 108
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a68d95dfa393e1d60800000000000000
+      internalID: 7862784924956874858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_PuffAndStars_1_108x116_001
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 812
+        width: 108
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df2ba499083207340800000000000000
+      internalID: 4859423033167360765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_PuffAndStars_1_108x116_002
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 812
+        width: 108
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c53ef2ae82d256bf0800000000000000
+      internalID: -331809343790914724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_PuffAndStars_1_108x116_003
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 812
+        width: 108
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7da92e40992fbef20800000000000000
+      internalID: 3453120278335494871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_PuffAndStars_1_108x116_004
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 812
+        width: 108
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75eae5100abfc33f0800000000000000
+      internalID: -919583559254102441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_PuffAndStars_1_108x116_005
+      rect:
+        serializedVersion: 2
+        x: 648
+        y: 812
+        width: 108
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 446bfab116840dca0800000000000000
+      internalID: -5994211522116602300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_PuffAndStars_1_108x116_006
+      rect:
+        serializedVersion: 2
+        x: 756
+        y: 812
+        width: 108
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46ccd539472f79c80800000000000000
+      internalID: -8315911604413805468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_PuffAndStars_1_108x116_007
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 812
+        width: 108
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 053084b08fc23a5a0800000000000000
+      internalID: -6511311192394824880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_PuffAndStars_1_108x116_008
+      rect:
+        serializedVersion: 2
+        x: 972
+        y: 812
+        width: 108
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: feeb1ddf6efc1ef70800000000000000
+      internalID: 9214874903584554735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_PuffAndStars_1_108x116_009
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 696
+        width: 108
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 242eb1318fd37c380800000000000000
+      internalID: -8951117598693793214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_PuffAndStars_1_108x116_010
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 696
+        width: 108
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c669819dd87a72ad0800000000000000
+      internalID: -2727026821675051412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_PuffAndStars_1_108x116_011
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 696
+        width: 108
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74ff6bb3cdca6cf70800000000000000
+      internalID: 9207236550100188999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_PuffAndStars_1_108x116_012
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 696
+        width: 108
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef869ec4027360220800000000000000
+      internalID: 2451707659018660094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_PuffAndStars_1_108x116_013
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 696
+        width: 108
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3983c8e626e7fa610800000000000000
+      internalID: 1634664150985357459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_PuffAndStars_1_108x116_014
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 696
+        width: 108
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e41e48e2a7e5f730800000000000000
+      internalID: 4032383728248296673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_PuffAndStars_1_108x116_015
+      rect:
+        serializedVersion: 2
+        x: 648
+        y: 696
+        width: 108
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f34ecf40d06dd22c0800000000000000
+      internalID: -4454669104992951233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_PuffAndStars_1_108x116_016
+      rect:
+        serializedVersion: 2
+        x: 756
+        y: 696
+        width: 108
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb7072f44124e2d60800000000000000
+      internalID: 7867298254057572287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_PuffAndStars_1_108x116_017
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 696
+        width: 108
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 372131f0d23b22bf0800000000000000
+      internalID: -350520814873669005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_PuffAndStars_1_108x116_018
+      rect:
+        serializedVersion: 2
+        x: 972
+        y: 696
+        width: 108
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aac1e8282c7d30bd0800000000000000
+      internalID: -2665049324059222870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_PuffAndStars_1_108x116_019
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 580
+        width: 108
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2fd4c1a335d0ae70800000000000000
+      internalID: 9124527262786707246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_PuffAndStars_1_108x116_020
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 580
+        width: 108
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8eb21ab017b22b670800000000000000
+      internalID: 8552946406856403944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_PuffAndStars_1_108x116_021
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 580
+        width: 108
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a646d7e4a21ec3f0800000000000000
+      internalID: -878744377817151832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_PuffAndStars_1_108x116_022
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 580
+        width: 108
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07b308473e4f871d0800000000000000
+      internalID: -3352660664828019856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_PuffAndStars_1_108x116_023
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 580
+        width: 108
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e280085b93e89320800000000000000
+      internalID: 2565050244123362021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_PuffAndStars_1_108x116_024
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 580
+        width: 108
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0d11ef1b94ac40c0800000000000000
+      internalID: -4590112934035645170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_PuffAndStars_1_108x116_025
+      rect:
+        serializedVersion: 2
+        x: 648
+        y: 580
+        width: 108
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c136545d9789148c0800000000000000
+      internalID: -4016761743601212644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_PuffAndStars_1_108x116_026
+      rect:
+        serializedVersion: 2
+        x: 756
+        y: 580
+        width: 108
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bd6179355a043db0800000000000000
+      internalID: -4813210740599984711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_PuffAndStars_1_108x116_027
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 580
+        width: 108
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c12531324d68f2c20800000000000000
+      internalID: 3183911707253887516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_PuffAndStars_1_108x116_028
+      rect:
+        serializedVersion: 2
+        x: 972
+        y: 580
+        width: 108
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7acf2eca1b2b47e10800000000000000
+      internalID: 2194575394615786663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_PuffAndStars_1_108x116_029
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 464
+        width: 108
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4881f2063cdb287e0800000000000000
+      internalID: -1764639457145841532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_PuffAndStars_1_108x116_030
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 464
+        width: 108
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79f22a0ac00f65120800000000000000
+      internalID: 2402371388273995671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_PuffAndStars_1_108x116_031
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 464
+        width: 108
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab101744371575240800000000000000
+      internalID: 4780379084988416442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_PuffAndStars_1_108x116_032
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 464
+        width: 108
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d35bd036baca53760800000000000000
+      internalID: 7437040211773470013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_PuffAndStars_1_108x116_033
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 464
+        width: 108
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 716f3841599a696b0800000000000000
+      internalID: -5289854254540655081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_PuffAndStars_1_108x116_034
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 464
+        width: 108
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19a2f3b87223dcb80800000000000000
+      internalID: -8372980986790597999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_PuffAndStars_1_108x116_035
+      rect:
+        serializedVersion: 2
+        x: 648
+        y: 464
+        width: 108
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 439ff55d16e810110800000000000000
+      internalID: 1225417124464294196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_PuffAndStars_1_108x116_036
+      rect:
+        serializedVersion: 2
+        x: 756
+        y: 464
+        width: 108
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00a9c35f264a019a0800000000000000
+      internalID: -6264326336744220160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_PuffAndStars_1_108x116_037
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 464
+        width: 108
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c672300d8d445b420800000000000000
+      internalID: 2645096054143526764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_PuffAndStars_1_108x116_038
+      rect:
+        serializedVersion: 2
+        x: 972
+        y: 464
+        width: 108
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a11ca602f6e09eaa0800000000000000
+      internalID: -6131353547240193766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_PuffAndStars_1_108x116_039
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 348
+        width: 108
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3bb3dc40b9102560800000000000000
+      internalID: 7286852442079345470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_PuffAndStars_1_108x116_040
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 348
+        width: 108
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6de902637b1d1e000800000000000000
+      internalID: 63562454577225430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_PuffAndStars_1_108x116_041
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 348
+        width: 108
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c3efd249c3127f30800000000000000
+      internalID: 4571738326865798086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_PuffAndStars_1_108x116_042
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 348
+        width: 108
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9535a9b7da9da53c0800000000000000
+      internalID: -4369941149283364007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_PuffAndStars_1_108x116_043
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 348
+        width: 108
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c59d945928e97060800000000000000
+      internalID: 6951842764033988041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_PuffAndStars_1_108x116_044
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 348
+        width: 108
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2fcfc83d8899dba0800000000000000
+      internalID: -6063647690966708433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_PuffAndStars_1_108x116_045
+      rect:
+        serializedVersion: 2
+        x: 648
+        y: 348
+        width: 108
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28055e1a5805b34a0800000000000000
+      internalID: -6612603092986408830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_PuffAndStars_1_108x116_046
+      rect:
+        serializedVersion: 2
+        x: 756
+        y: 348
+        width: 108
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a157627a32a29d10800000000000000
+      internalID: 2130943945610842537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_PuffAndStars_1_108x116_047
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 348
+        width: 108
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c6b09aabfded9600800000000000000
+      internalID: 476798800725325504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_PuffAndStars_1_108x116_048
+      rect:
+        serializedVersion: 2
+        x: 972
+        y: 348
+        width: 108
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a95ce3ef5eefe8f0800000000000000
+      internalID: -508926137256355420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_PuffAndStars_1_108x116_049
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 232
+        width: 108
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c686ff13073df6180800000000000000
+      internalID: -9119838241573345172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_PuffAndStars_1_108x116_050
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 232
+        width: 108
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68067872237a5e040800000000000000
+      internalID: 4676327621947515014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_PuffAndStars_1_108x116_051
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 232
+        width: 108
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20280035e65f26580800000000000000
+      internalID: -8835229664759741950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_PuffAndStars_1_108x116_052
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 232
+        width: 108
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c59265aaed6859e10800000000000000
+      internalID: 2203815883566360924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_PuffAndStars_1_108x116_053
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 232
+        width: 108
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 028e2ffa8865f6230800000000000000
+      internalID: 3634218569378752544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_PuffAndStars_1_108x116_054
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 232
+        width: 108
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4c06aaa8b91d2cb0800000000000000
+      internalID: -4887221739699434421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_PuffAndStars_1_108x116_055
+      rect:
+        serializedVersion: 2
+        x: 648
+        y: 232
+        width: 108
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc57ca7c8b3d2c0e0800000000000000
+      internalID: -2251004073154415155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_PuffAndStars_1_108x116_056
+      rect:
+        serializedVersion: 2
+        x: 756
+        y: 232
+        width: 108
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 663c795d30609a6c0800000000000000
+      internalID: -4131764569597557914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_PuffAndStars_1_108x116_057
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 232
+        width: 108
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81f6b1d518de075c0800000000000000
+      internalID: -4219611710977511656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_PuffAndStars_1_108x116_058
+      rect:
+        serializedVersion: 2
+        x: 972
+        y: 232
+        width: 108
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5533ddf335574c380800000000000000
+      internalID: -8951901158891506859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Effect_PuffAndStars_1_108x116_000: 7862784924956874858
+      Effect_PuffAndStars_1_108x116_001: 4859423033167360765
+      Effect_PuffAndStars_1_108x116_002: -331809343790914724
+      Effect_PuffAndStars_1_108x116_003: 3453120278335494871
+      Effect_PuffAndStars_1_108x116_004: -919583559254102441
+      Effect_PuffAndStars_1_108x116_005: -5994211522116602300
+      Effect_PuffAndStars_1_108x116_006: -8315911604413805468
+      Effect_PuffAndStars_1_108x116_007: -6511311192394824880
+      Effect_PuffAndStars_1_108x116_008: 9214874903584554735
+      Effect_PuffAndStars_1_108x116_009: -8951117598693793214
+      Effect_PuffAndStars_1_108x116_010: -2727026821675051412
+      Effect_PuffAndStars_1_108x116_011: 9207236550100188999
+      Effect_PuffAndStars_1_108x116_012: 2451707659018660094
+      Effect_PuffAndStars_1_108x116_013: 1634664150985357459
+      Effect_PuffAndStars_1_108x116_014: 4032383728248296673
+      Effect_PuffAndStars_1_108x116_015: -4454669104992951233
+      Effect_PuffAndStars_1_108x116_016: 7867298254057572287
+      Effect_PuffAndStars_1_108x116_017: -350520814873669005
+      Effect_PuffAndStars_1_108x116_018: -2665049324059222870
+      Effect_PuffAndStars_1_108x116_019: 9124527262786707246
+      Effect_PuffAndStars_1_108x116_020: 8552946406856403944
+      Effect_PuffAndStars_1_108x116_021: -878744377817151832
+      Effect_PuffAndStars_1_108x116_022: -3352660664828019856
+      Effect_PuffAndStars_1_108x116_023: 2565050244123362021
+      Effect_PuffAndStars_1_108x116_024: -4590112934035645170
+      Effect_PuffAndStars_1_108x116_025: -4016761743601212644
+      Effect_PuffAndStars_1_108x116_026: -4813210740599984711
+      Effect_PuffAndStars_1_108x116_027: 3183911707253887516
+      Effect_PuffAndStars_1_108x116_028: 2194575394615786663
+      Effect_PuffAndStars_1_108x116_029: -1764639457145841532
+      Effect_PuffAndStars_1_108x116_030: 2402371388273995671
+      Effect_PuffAndStars_1_108x116_031: 4780379084988416442
+      Effect_PuffAndStars_1_108x116_032: 7437040211773470013
+      Effect_PuffAndStars_1_108x116_033: -5289854254540655081
+      Effect_PuffAndStars_1_108x116_034: -8372980986790597999
+      Effect_PuffAndStars_1_108x116_035: 1225417124464294196
+      Effect_PuffAndStars_1_108x116_036: -6264326336744220160
+      Effect_PuffAndStars_1_108x116_037: 2645096054143526764
+      Effect_PuffAndStars_1_108x116_038: -6131353547240193766
+      Effect_PuffAndStars_1_108x116_039: 7286852442079345470
+      Effect_PuffAndStars_1_108x116_040: 63562454577225430
+      Effect_PuffAndStars_1_108x116_041: 4571738326865798086
+      Effect_PuffAndStars_1_108x116_042: -4369941149283364007
+      Effect_PuffAndStars_1_108x116_043: 6951842764033988041
+      Effect_PuffAndStars_1_108x116_044: -6063647690966708433
+      Effect_PuffAndStars_1_108x116_045: -6612603092986408830
+      Effect_PuffAndStars_1_108x116_046: 2130943945610842537
+      Effect_PuffAndStars_1_108x116_047: 476798800725325504
+      Effect_PuffAndStars_1_108x116_048: -508926137256355420
+      Effect_PuffAndStars_1_108x116_049: -9119838241573345172
+      Effect_PuffAndStars_1_108x116_050: 4676327621947515014
+      Effect_PuffAndStars_1_108x116_051: -8835229664759741950
+      Effect_PuffAndStars_1_108x116_052: 2203815883566360924
+      Effect_PuffAndStars_1_108x116_053: 3634218569378752544
+      Effect_PuffAndStars_1_108x116_054: -4887221739699434421
+      Effect_PuffAndStars_1_108x116_055: -2251004073154415155
+      Effect_PuffAndStars_1_108x116_056: -4131764569597557914
+      Effect_PuffAndStars_1_108x116_057: -4219611710977511656
+      Effect_PuffAndStars_1_108x116_058: -8951901158891506859
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

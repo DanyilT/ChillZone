@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 666e0bc95f5ce4abf81ffe5d8061b142, type: 3}
+  m_Name: GooglePlayStoreLink
+  m_EditorClassIdentifier: Assembly-CSharp:ChillZone.Settings:TextLinkButtonCell
+  text: Rate the game
+  buttonText: PlayStore
+  url: https://play.google.com/store/apps/details?id=com.DanyT.ChillZone
+  useGradient: 0
+  gradientTop: {r: 0, g: 0.36, b: 0.85, a: 1}
+  gradientBottom: {r: 1, g: 0.84, b: 0, a: 1}

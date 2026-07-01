@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c20f46e75be67489b99cacee68ee8c80, type: 3}
+  m_Name: Ball_TennisBall
+  m_EditorClassIdentifier: 
+  id: ball-tennisball
+  displayName: TennisBall
+  description: 
+  rarity: 3
+  menuSprite: {fileID: 21300000, guid: 5fcbb1e46e4b241588d2226150cdc4a5, type: 3}
+  lockedSprite: {fileID: 0}
+  uiAccentColor: {r: 0.6, g: 0.627451, b: 0.15294118, a: 1}
+  unlockCriteria:
+    type: 1
+    requiredScore: 200
+    requiredCurrency: 0
+    achievementId: 
+    requiredCode: 
+  prefab: {fileID: 268114445365735918, guid: 5156f9fb53ced4df1b9ae4167f54900e, type: 3}
+  realWorldSizeMeters: 0
+  hitVFXPrefab: {fileID: 2325919069014445363, guid: a64dadc4e2c444c13b125308a7333285, type: 3}
+  hitVFXSize: 0.8
+  missVFXPrefab: {fileID: 5426055775712505425, guid: 46c59bb7c5558426298ddb18388aed7e, type: 3}
+  missVFXSize: 0.3
+  trail:
+    enabled: 1
+    time: 0.35
+    startWidth: 0.12
+    endWidth: 0
+    useAccentColor: 1
+    color:
+      serializedVersion: 2
+      key0: {r: 1, g: 1, b: 1, a: 1}
+      key1: {r: 1, g: 1, b: 1, a: 0}
+      key2: {r: 0, g: 0, b: 0, a: 0}
+      key3: {r: 0, g: 0, b: 0, a: 0}
+      key4: {r: 0, g: 0, b: 0, a: 0}
+      key5: {r: 0, g: 0, b: 0, a: 0}
+      key6: {r: 0, g: 0, b: 0, a: 0}
+      key7: {r: 0, g: 0, b: 0, a: 0}
+      ctime0: 0
+      ctime1: 65535
+      ctime2: 0
+      ctime3: 0
+      ctime4: 0
+      ctime5: 0
+      ctime6: 0
+      ctime7: 0
+      atime0: 0
+      atime1: 65535
+      atime2: 0
+      atime3: 0
+      atime4: 0
+      atime5: 0
+      atime6: 0
+      atime7: 0
+      m_Mode: 0
+      m_ColorSpace: -1
+      m_NumColorKeys: 2
+      m_NumAlphaKeys: 2
+    minVertexDistance: 0.02
+    material: {fileID: 0}
+  throwSound: {fileID: 8300000, guid: c79ecafa6679d4af5bae5d9d1b9461d1, type: 3}
+  hitSound: {fileID: 8300000, guid: 28d4ef66f461140979da3a659c2b115d, type: 3}
+  missSound: {fileID: 8300000, guid: 2267f54ed4ce4430a9f285b263e4df54, type: 3}
+  mass: 1
+  bounciness: 0.5
+  drag: 0.1

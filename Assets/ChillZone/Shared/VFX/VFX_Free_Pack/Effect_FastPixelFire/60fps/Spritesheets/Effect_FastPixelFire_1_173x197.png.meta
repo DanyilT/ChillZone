@@ -1,0 +1,1460 @@
+fileFormatVersion: 2
+guid: 97e5be7bf02de4f188710b0d9239ee45
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Effect_FastPixelFire_1_173x197_000
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1182
+        width: 173
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e91b5068910118880800000000000000
+      internalID: -8610583310746930786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_FastPixelFire_1_173x197_001
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 1182
+        width: 173
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94c68221948a9cf30800000000000000
+      internalID: 4596389926499019849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_FastPixelFire_1_173x197_002
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 1182
+        width: 173
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62f33c3f2deb14780800000000000000
+      internalID: -8700463191861018842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_FastPixelFire_1_173x197_003
+      rect:
+        serializedVersion: 2
+        x: 519
+        y: 1182
+        width: 173
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e65e732bc719467f0800000000000000
+      internalID: -620210883918305938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_FastPixelFire_1_173x197_004
+      rect:
+        serializedVersion: 2
+        x: 692
+        y: 1182
+        width: 173
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3de0797744cb7660800000000000000
+      internalID: 7384711825263226174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_FastPixelFire_1_173x197_005
+      rect:
+        serializedVersion: 2
+        x: 865
+        y: 1182
+        width: 173
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8cdcc8a4b2afd280800000000000000
+      internalID: -9016309032162632566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_FastPixelFire_1_173x197_006
+      rect:
+        serializedVersion: 2
+        x: 1038
+        y: 1182
+        width: 173
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e41ed0afe5adea00800000000000000
+      internalID: 787467958474380512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_FastPixelFire_1_173x197_007
+      rect:
+        serializedVersion: 2
+        x: 1211
+        y: 1182
+        width: 173
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 413528305f0510fb0800000000000000
+      internalID: -4683373124232522988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_FastPixelFire_1_173x197_008
+      rect:
+        serializedVersion: 2
+        x: 1384
+        y: 1182
+        width: 173
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b14573de90219dfd0800000000000000
+      internalID: -2316800699461577701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_FastPixelFire_1_173x197_009
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 985
+        width: 173
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a7452ae986702170800000000000000
+      internalID: 8151645660251506596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_FastPixelFire_1_173x197_010
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 985
+        width: 173
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f66a8c562e327680800000000000000
+      internalID: -8758869990799939850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_FastPixelFire_1_173x197_011
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 985
+        width: 173
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf09d090d0fe87dd0800000000000000
+      internalID: -2487975954856701701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_FastPixelFire_1_173x197_012
+      rect:
+        serializedVersion: 2
+        x: 519
+        y: 985
+        width: 173
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2cc4ff4aa0b84e320800000000000000
+      internalID: 2586344963851635906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_FastPixelFire_1_173x197_013
+      rect:
+        serializedVersion: 2
+        x: 692
+        y: 985
+        width: 173
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4636dd472a3fef8a0800000000000000
+      internalID: -6269305752182234268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_FastPixelFire_1_173x197_014
+      rect:
+        serializedVersion: 2
+        x: 865
+        y: 985
+        width: 173
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d768ec7e0d0af890800000000000000
+      internalID: -7423606679890532391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_FastPixelFire_1_173x197_015
+      rect:
+        serializedVersion: 2
+        x: 1038
+        y: 985
+        width: 173
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4fd84f7d53bca8a20800000000000000
+      internalID: 3065485928495877620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_FastPixelFire_1_173x197_016
+      rect:
+        serializedVersion: 2
+        x: 1211
+        y: 985
+        width: 173
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 578814d6914dd3380800000000000000
+      internalID: -8989796075489359755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_FastPixelFire_1_173x197_017
+      rect:
+        serializedVersion: 2
+        x: 1384
+        y: 985
+        width: 173
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8510338399ba5da10800000000000000
+      internalID: 1933640289586708824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_FastPixelFire_1_173x197_018
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 788
+        width: 173
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26f98454468c55c40800000000000000
+      internalID: 5500522852887600994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_FastPixelFire_1_173x197_019
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 788
+        width: 173
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c633ab84ed9f5b420800000000000000
+      internalID: 2645295089248252780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_FastPixelFire_1_173x197_020
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 788
+        width: 173
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 990a5d904c525b160800000000000000
+      internalID: 7040575116372451481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_FastPixelFire_1_173x197_021
+      rect:
+        serializedVersion: 2
+        x: 519
+        y: 788
+        width: 173
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b61c5b3ec65710c0800000000000000
+      internalID: -4605116650203900240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_FastPixelFire_1_173x197_022
+      rect:
+        serializedVersion: 2
+        x: 692
+        y: 788
+        width: 173
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42b3aa57845eb99d0800000000000000
+      internalID: -2766365446714541276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_FastPixelFire_1_173x197_023
+      rect:
+        serializedVersion: 2
+        x: 865
+        y: 788
+        width: 173
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9ace54ecd68e8fd0800000000000000
+      internalID: -2337782873276364133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_FastPixelFire_1_173x197_024
+      rect:
+        serializedVersion: 2
+        x: 1038
+        y: 788
+        width: 173
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b300287cd2a4ce820800000000000000
+      internalID: 2948813416502001723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_FastPixelFire_1_173x197_025
+      rect:
+        serializedVersion: 2
+        x: 1211
+        y: 788
+        width: 173
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3cf440737961247e0800000000000000
+      internalID: -1782837663766392893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_FastPixelFire_1_173x197_026
+      rect:
+        serializedVersion: 2
+        x: 1384
+        y: 788
+        width: 173
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7175009d650bea940800000000000000
+      internalID: 5309374897770747671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_FastPixelFire_1_173x197_027
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 591
+        width: 173
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 061b29674c6bfe980800000000000000
+      internalID: -8507380216160407200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_FastPixelFire_1_173x197_028
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 591
+        width: 173
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4dd583cd288439d60800000000000000
+      internalID: 7895734298588241364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_FastPixelFire_1_173x197_029
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 591
+        width: 173
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51e57047409b88690800000000000000
+      internalID: -7599620942410064363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_FastPixelFire_1_173x197_030
+      rect:
+        serializedVersion: 2
+        x: 519
+        y: 591
+        width: 173
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92a3aaa501c9d5130800000000000000
+      internalID: 3557170874747075113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_FastPixelFire_1_173x197_031
+      rect:
+        serializedVersion: 2
+        x: 692
+        y: 591
+        width: 173
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d030dd68a3c56b790800000000000000
+      internalID: -7514717521780604147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_FastPixelFire_1_173x197_032
+      rect:
+        serializedVersion: 2
+        x: 865
+        y: 591
+        width: 173
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c59bc176d1a855c0800000000000000
+      internalID: -4226450307882969656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_FastPixelFire_1_173x197_033
+      rect:
+        serializedVersion: 2
+        x: 1038
+        y: 591
+        width: 173
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d713746f628ea6ed0800000000000000
+      internalID: -2419866595719958147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_FastPixelFire_1_173x197_034
+      rect:
+        serializedVersion: 2
+        x: 1211
+        y: 591
+        width: 173
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 842078bbe8a0540b0800000000000000
+      internalID: -5745174141493378488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_FastPixelFire_1_173x197_035
+      rect:
+        serializedVersion: 2
+        x: 1384
+        y: 591
+        width: 173
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43f21407407564120800000000000000
+      internalID: 2397699528196173620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_FastPixelFire_1_173x197_036
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 394
+        width: 173
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b05e4b3f1d6d22390800000000000000
+      internalID: -7844471403700755189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_FastPixelFire_1_173x197_037
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 394
+        width: 173
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9331d83eaa1eef970800000000000000
+      internalID: 8790711646752150329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_FastPixelFire_1_173x197_038
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 394
+        width: 173
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f6903ebbb6fe0e70800000000000000
+      internalID: 9083468784663041785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_FastPixelFire_1_173x197_039
+      rect:
+        serializedVersion: 2
+        x: 519
+        y: 394
+        width: 173
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e33580dde5c9f7ce0800000000000000
+      internalID: -1405232627467136194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_FastPixelFire_1_173x197_040
+      rect:
+        serializedVersion: 2
+        x: 692
+        y: 394
+        width: 173
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5103822165db8f30800000000000000
+      internalID: 4578988059319796063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_FastPixelFire_1_173x197_041
+      rect:
+        serializedVersion: 2
+        x: 865
+        y: 394
+        width: 173
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 845b569be299f4f80800000000000000
+      internalID: -8120103177167719096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_FastPixelFire_1_173x197_042
+      rect:
+        serializedVersion: 2
+        x: 1038
+        y: 394
+        width: 173
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec5c8092472e9d310800000000000000
+      internalID: 1430423345199367630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_FastPixelFire_1_173x197_043
+      rect:
+        serializedVersion: 2
+        x: 1211
+        y: 394
+        width: 173
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5e386899b5a39af0800000000000000
+      internalID: -390786526106599845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_FastPixelFire_1_173x197_044
+      rect:
+        serializedVersion: 2
+        x: 1384
+        y: 394
+        width: 173
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9705e366584972400800000000000000
+      internalID: 299371200910348409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_FastPixelFire_1_173x197_045
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 197
+        width: 173
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57549a7ec703b7d30800000000000000
+      internalID: 4430187971469722997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_FastPixelFire_1_173x197_046
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 197
+        width: 173
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a62b9034468e12f0800000000000000
+      internalID: -1000214439798298973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_FastPixelFire_1_173x197_047
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 197
+        width: 173
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db9da48f005dabf40800000000000000
+      internalID: 5745138474806860221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_FastPixelFire_1_173x197_048
+      rect:
+        serializedVersion: 2
+        x: 519
+        y: 197
+        width: 173
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44aac7e5d0c75ff10800000000000000
+      internalID: 2302883181331524164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_FastPixelFire_1_173x197_049
+      rect:
+        serializedVersion: 2
+        x: 692
+        y: 197
+        width: 173
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 419724ca68c5aaef0800000000000000
+      internalID: -96162708549633772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_FastPixelFire_1_173x197_050
+      rect:
+        serializedVersion: 2
+        x: 865
+        y: 197
+        width: 173
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5bdaea12e873f0e0800000000000000
+      internalID: -2237311677363463334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_FastPixelFire_1_173x197_051
+      rect:
+        serializedVersion: 2
+        x: 1038
+        y: 197
+        width: 173
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b13bb3100904f6ed0800000000000000
+      internalID: -2418643487634509029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_FastPixelFire_1_173x197_052
+      rect:
+        serializedVersion: 2
+        x: 1211
+        y: 197
+        width: 173
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e32fcabd0bc5a9f0800000000000000
+      internalID: -457736527279086617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_FastPixelFire_1_173x197_053
+      rect:
+        serializedVersion: 2
+        x: 1384
+        y: 197
+        width: 173
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e5f75b9b03625e10800000000000000
+      internalID: 2184917670730135012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_FastPixelFire_1_173x197_054
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 173
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a03d578d662bd7130800000000000000
+      internalID: 3566202634735309578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_FastPixelFire_1_173x197_055
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 0
+        width: 173
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b4d07d184beba4f0800000000000000
+      internalID: -816300212473506635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_FastPixelFire_1_173x197_056
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 0
+        width: 173
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 848e8b23a70eee4d0800000000000000
+      internalID: -3103296277770082232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_FastPixelFire_1_173x197_057
+      rect:
+        serializedVersion: 2
+        x: 519
+        y: 0
+        width: 173
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99e0bb28e78250340800000000000000
+      internalID: 4829310699249012377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_FastPixelFire_1_173x197_058
+      rect:
+        serializedVersion: 2
+        x: 692
+        y: 0
+        width: 173
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a69d01d27d3ba010800000000000000
+      internalID: 1201121288967263912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_FastPixelFire_1_173x197_059
+      rect:
+        serializedVersion: 2
+        x: 865
+        y: 0
+        width: 173
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5bb9690d393310f00800000000000000
+      internalID: 1081202095498369973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Effect_FastPixelFire_1_173x197_000: -8610583310746930786
+      Effect_FastPixelFire_1_173x197_001: 4596389926499019849
+      Effect_FastPixelFire_1_173x197_002: -8700463191861018842
+      Effect_FastPixelFire_1_173x197_003: -620210883918305938
+      Effect_FastPixelFire_1_173x197_004: 7384711825263226174
+      Effect_FastPixelFire_1_173x197_005: -9016309032162632566
+      Effect_FastPixelFire_1_173x197_006: 787467958474380512
+      Effect_FastPixelFire_1_173x197_007: -4683373124232522988
+      Effect_FastPixelFire_1_173x197_008: -2316800699461577701
+      Effect_FastPixelFire_1_173x197_009: 8151645660251506596
+      Effect_FastPixelFire_1_173x197_010: -8758869990799939850
+      Effect_FastPixelFire_1_173x197_011: -2487975954856701701
+      Effect_FastPixelFire_1_173x197_012: 2586344963851635906
+      Effect_FastPixelFire_1_173x197_013: -6269305752182234268
+      Effect_FastPixelFire_1_173x197_014: -7423606679890532391
+      Effect_FastPixelFire_1_173x197_015: 3065485928495877620
+      Effect_FastPixelFire_1_173x197_016: -8989796075489359755
+      Effect_FastPixelFire_1_173x197_017: 1933640289586708824
+      Effect_FastPixelFire_1_173x197_018: 5500522852887600994
+      Effect_FastPixelFire_1_173x197_019: 2645295089248252780
+      Effect_FastPixelFire_1_173x197_020: 7040575116372451481
+      Effect_FastPixelFire_1_173x197_021: -4605116650203900240
+      Effect_FastPixelFire_1_173x197_022: -2766365446714541276
+      Effect_FastPixelFire_1_173x197_023: -2337782873276364133
+      Effect_FastPixelFire_1_173x197_024: 2948813416502001723
+      Effect_FastPixelFire_1_173x197_025: -1782837663766392893
+      Effect_FastPixelFire_1_173x197_026: 5309374897770747671
+      Effect_FastPixelFire_1_173x197_027: -8507380216160407200
+      Effect_FastPixelFire_1_173x197_028: 7895734298588241364
+      Effect_FastPixelFire_1_173x197_029: -7599620942410064363
+      Effect_FastPixelFire_1_173x197_030: 3557170874747075113
+      Effect_FastPixelFire_1_173x197_031: -7514717521780604147
+      Effect_FastPixelFire_1_173x197_032: -4226450307882969656
+      Effect_FastPixelFire_1_173x197_033: -2419866595719958147
+      Effect_FastPixelFire_1_173x197_034: -5745174141493378488
+      Effect_FastPixelFire_1_173x197_035: 2397699528196173620
+      Effect_FastPixelFire_1_173x197_036: -7844471403700755189
+      Effect_FastPixelFire_1_173x197_037: 8790711646752150329
+      Effect_FastPixelFire_1_173x197_038: 9083468784663041785
+      Effect_FastPixelFire_1_173x197_039: -1405232627467136194
+      Effect_FastPixelFire_1_173x197_040: 4578988059319796063
+      Effect_FastPixelFire_1_173x197_041: -8120103177167719096
+      Effect_FastPixelFire_1_173x197_042: 1430423345199367630
+      Effect_FastPixelFire_1_173x197_043: -390786526106599845
+      Effect_FastPixelFire_1_173x197_044: 299371200910348409
+      Effect_FastPixelFire_1_173x197_045: 4430187971469722997
+      Effect_FastPixelFire_1_173x197_046: -1000214439798298973
+      Effect_FastPixelFire_1_173x197_047: 5745138474806860221
+      Effect_FastPixelFire_1_173x197_048: 2302883181331524164
+      Effect_FastPixelFire_1_173x197_049: -96162708549633772
+      Effect_FastPixelFire_1_173x197_050: -2237311677363463334
+      Effect_FastPixelFire_1_173x197_051: -2418643487634509029
+      Effect_FastPixelFire_1_173x197_052: -457736527279086617
+      Effect_FastPixelFire_1_173x197_053: 2184917670730135012
+      Effect_FastPixelFire_1_173x197_054: 3566202634735309578
+      Effect_FastPixelFire_1_173x197_055: -816300212473506635
+      Effect_FastPixelFire_1_173x197_056: -3103296277770082232
+      Effect_FastPixelFire_1_173x197_057: 4829310699249012377
+      Effect_FastPixelFire_1_173x197_058: 1201121288967263912
+      Effect_FastPixelFire_1_173x197_059: 1081202095498369973
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,191 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b99af9e53cba423d8b7f5d3ea1b0460, type: 3}
+  m_Name: ManualWindowConfig
+  m_EditorClassIdentifier: 
+  windowId: manual
+  globalConfig: {fileID: 11400000, guid: 1b64e0cbcce564c0aa64ad9373c8b871, type: 2}
+  backdropConfig:
+    color: {r: 0, g: 0, b: 0, a: 0.8}
+    blockRaycasts: 1
+    closeOnBackdropClick: 1
+  headerConfig:
+    headerAppearanceConfig:
+      color: {r: 0, g: 0, b: 0, a: 1}
+      imageShape: 1
+      cornerRadius: 32
+    titleText: manual
+    titleTextConfig:
+      fontSize: 42
+      enableAutoSizing: 1
+      fontSizeMin: 16
+      fontSizeMax: 60
+      fontStyle: 32
+      color: {r: 1, g: 1, b: 1, a: 1}
+      alignment: 514
+      fontMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    blockRaycasts: 1
+    closeOnHeaderClick: 1
+  panelConfig:
+    backgroundAlpha: 0.9
+    panelAppearanceConfig:
+      color: {r: 0, g: 0, b: 0, a: 1}
+      imageShape: 1
+      cornerRadius: 32
+    bodyText: 
+    bodyTextConfig:
+      fontSize: 28
+      enableAutoSizing: 1
+      fontSizeMin: 16
+      fontSizeMax: 48
+      fontStyle: 0
+      color: {r: 0.85, g: 0.85, b: 0.85, a: 1}
+      alignment: 257
+      fontMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    iconConfig:
+      icons: []
+      iconsLayout: 1
+      iconSize: 100
+      iconSpacing: 20
+      iconColor: {r: 1, g: 1, b: 1, a: 1}
+    screenWidthFraction: 0.8
+    preferredWidth: 0
+    preferredHeight: 0
+    minWidth: 320
+    minHeight: 140
+    blockRaycasts: 1
+    closeOnPanelClick: 0
+  animationConfig: {fileID: 11400000, guid: 037bed1d2c09c4704870fad90511d0a5, type: 2}
+  hideOtherUI: 0
+  manualConfig:
+    rows:
+    - iconConfig:
+        icons:
+        - sprite: {fileID: 21300000, guid: cade8ce615aa74a68857672ffcef42a3, type: 3}
+          sizeOverride: 0
+          spacingAfter: 0
+        iconsLayout: 0
+        iconSize: 120
+        iconSpacing: 0
+        iconColor: {r: 1, g: 1, b: 1, a: 1}
+      title: Scan the Surface
+      description: To detect horizontal place
+    - iconConfig:
+        icons:
+        - sprite: {fileID: 21300000, guid: c0307125866f043b5a37dcd4705d5203, type: 3}
+          sizeOverride: 0
+          spacingAfter: 0
+        iconsLayout: 0
+        iconSize: 120
+        iconSpacing: 0
+        iconColor: {r: 1, g: 1, b: 1, a: 1}
+      title: Place the virtual basket
+      description: Tap on the detected place to place the Basket
+    - iconConfig:
+        icons:
+        - sprite: {fileID: 21300000, guid: 5122cd63f53f742dfb6a653add59d08d, type: 3}
+          sizeOverride: 0
+          spacingAfter: 0
+        iconsLayout: 0
+        iconSize: 120
+        iconSpacing: 0
+        iconColor: {r: 1, g: 1, b: 1, a: 1}
+      title: Drag the Basket
+      description: Tap and drag the Basket
+    - iconConfig:
+        icons:
+        - sprite: {fileID: 21300000, guid: 47de79efb19324f95a906dcec61b48a2, type: 3}
+          sizeOverride: 0
+          spacingAfter: 0
+        iconsLayout: 0
+        iconSize: 120
+        iconSpacing: 0
+        iconColor: {r: 1, g: 1, b: 1, a: 1}
+      title: Delete the Basket
+      description: Double tap the basket to delete it
+    - iconConfig:
+        icons:
+        - sprite: {fileID: 21300000, guid: 0b146d6947e8c477b80f016aff0a30e3, type: 3}
+          sizeOverride: 0
+          spacingAfter: 0
+        iconsLayout: 0
+        iconSize: 120
+        iconSpacing: 0
+        iconColor: {r: 1, g: 1, b: 1, a: 1}
+      title: Pause
+      description: Disable camera and put the game on pause
+    - iconConfig:
+        icons:
+        - sprite: {fileID: 21300000, guid: bc65b938eab834c39a6881c961f65fa4, type: 3}
+          sizeOverride: 0
+          spacingAfter: 0
+        iconsLayout: 0
+        iconSize: 120
+        iconSpacing: 0
+        iconColor: {r: 1, g: 1, b: 1, a: 1}
+      title: Restart
+      description: 'Reset scanning phase or a ball. Note: On ball reset may reset
+        your curent score if a ball was thrown before reset call.'
+    - iconConfig:
+        icons:
+        - sprite: {fileID: 21300000, guid: dabf5eae4eeba460f8c2bdee2f32289e, type: 3}
+          sizeOverride: 0
+          spacingAfter: 0
+        iconsLayout: 0
+        iconSize: 120
+        iconSpacing: 0
+        iconColor: {r: 1, g: 1, b: 1, a: 1}
+      title: Ball Picker
+      description: Choose a ball to throw
+    - iconConfig:
+        icons:
+        - sprite: {fileID: 21300000, guid: d5f77ac0e00f548a7803fa37d67218e6, type: 3}
+          sizeOverride: 0
+          spacingAfter: 0
+        iconsLayout: 0
+        iconSize: 120
+        iconSpacing: 0
+        iconColor: {r: 1, g: 1, b: 1, a: 1}
+      title: Basket Picker
+      description: Choose a basket skin
+    rowSpacing: 65
+    titleConfig:
+      fontSize: 28
+      enableAutoSizing: 1
+      fontSizeMin: 16
+      fontSizeMax: 48
+      fontStyle: 0
+      color: {r: 0.85, g: 0.85, b: 0.85, a: 1}
+      alignment: 257
+      fontMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    descriptionConfig:
+      fontSize: 32
+      enableAutoSizing: 0
+      fontSizeMin: 0
+      fontSizeMax: 0
+      fontStyle: 2
+      color: {r: 0.85, g: 0.85, b: 0.85, a: 1}
+      alignment: 257
+      fontMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    summary: The objective of the game is to throw the ball into the bin. If you
+      successfully hit the bin, your score increases.
+    summaryConfig:
+      fontSize: 32
+      enableAutoSizing: 0
+      fontSizeMin: 0
+      fontSizeMax: 0
+      fontStyle: 0
+      color: {r: 0.85, g: 0.85, b: 0.85, a: 1}
+      alignment: 514
+      fontMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    summarySpacing: 60
+    maxScreenHeightFraction: 0.8

@@ -1,0 +1,25 @@
+Using:
+- Effect_Anima_1
+- Effect_Charged_1
+- Effect_Constellation_1
+- Effect_DitheredFire_1
+- Effect_Hyperspeed_1
+- Effect_Impact_1
+- Effect_Kabooms_1
+- Effect_Magma_1
+- Effect_PuffAndStars_1
+- Effect_Tentacles_1
+- Effect_Wheel_1
+- Effect_Worm_1
+
+Not Used:
+- Effect_BigHit_1
+- Effect_BloodImpact_1
+- Effect_EldenRing_1
+- Effect_ElectricShield_1
+- Effect_Explosion_1
+- Effect_Explosion2_1
+- Effect_FastPixelFire_1
+- Effect_PowerChords_1
+- Effect_SmallHit_1
+- Effect_TheVortex_1

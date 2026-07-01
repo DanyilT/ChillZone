@@ -1,0 +1,156 @@
+using System;
+using ChillZone.Basket.Utils;
+using ChillZone.Content;
+using ChillZone.Core;
+using ChillZone.Gameplay;
+using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.XR.ARFoundation;
+
+namespace ChillZone.Basket
+{
+    /// <summary>
+    /// Scene component that owns the single AR basket's lifecycle. While no basket exists
+    /// it reads the primary pointer: a tap on a valid floor instantiates the basket prefab,
+    /// hands it a shared <see cref="SurfaceRaycaster"/> and grounds it. Once a basket is
+    /// placed it forwards the (state-gated) tick to the basket's own <see cref="BasketController"/>,
+    /// which owns move/delete. Driven by GameFlowController in the Placing/Playing states.
+    /// </summary>
+    public class BasketSpawnManager : MonoBehaviour
+    {
+        [SerializeField, Header("Placement filtering"), Tooltip("Reject surfaces tilted more than this many degrees from world-up, even if AR classifies them as horizontal.")]
+        private float maxSurfaceTiltDegrees = 15f;
+        [SerializeField, Tooltip("Basket registry — fallback source for the first/default basket when no ContentManager selection is available.")]
+        private UnlockableContentRegistry registry;
+
+        private ARRaycastManager _raycastManager;
+        private ARPlaneManager _planeManager;
+        private SurfaceRaycaster _raycaster;
+
+        private GameObject _basket;
+        private BasketController _controller;
+        private Action _onDestroyed;
+
+        #region setup
+
+        public void Initialize(ARRaycastManager raycastManager, ARPlaneManager planeManager = null)
+        {
+            _raycastManager = raycastManager;
+            _planeManager = planeManager ? planeManager : FindObjectOfType<ARPlaneManager>();
+            _raycaster = new SurfaceRaycaster(_raycastManager, _planeManager, maxSurfaceTiltDegrees);
+        }
+
+        public GameObject GetBasket() => _basket;
+
+        #endregion
+
+        #region input
+
+        /// <summary>Driven by GameFlowController while in Placing/Playing. With no basket it reads the pointer to place one; with a basket it forwards the tick to the BasketController.</summary>
+        public void HandleInput(Action onPlaced, Action onDestroyed = null)
+        {
+            _onDestroyed = onDestroyed;
+
+            if (_basket)
+            {
+                _controller?.HandleInteraction();
+                return;
+            }
+
+            var pointer = Pointer.current;
+            if (pointer == null || !pointer.press.wasPressedThisFrame) return;
+
+            var screenPosition = pointer.position.ReadValue();
+            if (PointerOverUI.At(screenPosition)) return;  // tap landed on the HUD, not the floor
+
+            if (TryPlaceBasket(screenPosition, ResolveBasketPrefab()))
+                onPlaced?.Invoke();
+        }
+
+        /// <summary>
+        /// Editor/debug helper: drop the basket a fixed distance straight in front of the camera (no surface
+        /// raycast — XR Simulation planes are unreliable). Placed at eye level and turned to face the camera.
+        /// Returns true once placed (or if one already exists). Used by GameFlowController's debug auto-start.
+        /// </summary>
+        public bool PlaceBasketInFrontOfCamera(float distanceMeters)
+        {
+            if (_basket) return true;
+
+            var prefab = ResolveBasketPrefab();
+            var cam = CameraProvider.Current;
+            if (!prefab || !cam) return false;
+
+            // Horizontal forward so the basket sits level regardless of camera pitch.
+            var forward = cam.transform.forward;
+            forward.y = 0f;
+            forward = forward.sqrMagnitude > 1e-4f ? forward.normalized : Vector3.forward;
+
+            var position = cam.transform.position + forward * distanceMeters;
+            position.y = 0f;
+            var rotation = Quaternion.LookRotation(-forward, Vector3.up); // face back toward the camera
+
+            PlaceBasket(prefab, position, rotation, ground: false);
+            return true;
+        }
+
+        // The basket to place: the player's last-selected basket (ContentManager persists + defaults it), falling
+        // back to the first basket in the registry when no ContentManager selection is available.
+        private GameObject ResolveBasketPrefab()
+        {
+            var prefab = ContentManager.Instance ? ContentManager.Instance.GetSelected<BasketData>(ContentTypes.Basket)?.prefab : null;
+            if (!prefab && registry) prefab = (registry.GetDefaultContent() as BasketData)?.prefab;
+            return prefab;
+        }
+
+        #endregion
+
+        #region placement (private)
+
+        private bool TryPlaceBasket(Vector2 screenPosition, GameObject prefab)
+        {
+            if (_basket || !prefab || _raycaster == null) return false;
+            if (!_raycaster.TryRaycast(screenPosition, out var hitPose)) return false;
+
+            PlaceBasket(prefab, hitPose.position, hitPose.rotation, ground: true);
+            return true;
+        }
+
+        // Instantiate the basket and wire its controller. `ground` rests its base on the point (for real
+        // surface placement); the debug in-front spawn skips grounding since there's no floor to sit on.
+        private void PlaceBasket(GameObject prefab, Vector3 position, Quaternion rotation, bool ground)
+        {
+            _basket = Instantiate(prefab, position, rotation);
+
+            _controller = _basket.GetComponent<BasketController>();
+            if (!_controller)
+            {
+                Debug.LogError("BasketSpawnManager: basket prefab is missing a BasketController; adding one.", _basket);
+                _controller = _basket.AddComponent<BasketController>();
+            }
+
+            _controller.Initialize(_raycaster);
+            _controller.Deleted += OnBasketDeleted;
+            if (ground) _controller.GroundOn(position);
+        }
+
+        private void OnBasketDeleted()
+        {
+            if (_controller) _controller.Deleted -= OnBasketDeleted;
+            _basket = null;
+            _controller = null;
+            _onDestroyed?.Invoke();
+        }
+
+        /// <summary>Destroys the placed basket (if any) without firing the onDestroyed callback — used by scan reset, which drives its own next state.</summary>
+        public void RemoveBasket()
+        {
+            if (!_basket) return;
+            if (_controller) _controller.Deleted -= OnBasketDeleted;
+            Destroy(_basket);
+            _basket = null;
+            _controller = null;
+        }
+
+        #endregion
+    }
+}

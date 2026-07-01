@@ -4,17 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Undefined
-  - Ball
-  - Basket
-  - Reset
-  - Score
-  - Back
-  - AR Toggle
-  - Readme
-  - AR Plane
-  - iOS
-  - Android
+  - ScoreZone
+  - BallPool
   layers:
   - Default
   - TransparentFX
@@ -22,7 +13,6 @@ TagManager:
   - 
   - Water
   - UI
-  - OnlyShow
   - 
   - 
   - 
@@ -47,6 +37,7 @@ TagManager:
   - 
   - 
   - 
+  - XR Simulation
   - 
   m_SortingLayers:
   - name: Default

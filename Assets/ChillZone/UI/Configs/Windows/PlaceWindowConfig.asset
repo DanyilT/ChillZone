@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c19f743b05c64ac487977fe018e7fb0, type: 3}
+  m_Name: PlaceWindowConfig
+  m_EditorClassIdentifier: 
+  windowId: tap-to-place-hint
+  globalConfig: {fileID: 11400000, guid: 1b64e0cbcce564c0aa64ad9373c8b871, type: 2}
+  backdropConfig:
+    color: {r: 0, g: 0, b: 0, a: 0.5}
+    blockRaycasts: 0
+    closeOnBackdropClick: 0
+  headerConfig:
+    headerAppearanceConfig:
+      color: {r: 0, g: 0, b: 0, a: 1}
+      imageShape: 1
+      cornerRadius: 32
+    titleText: Tap to Place
+    titleTextConfig:
+      fontSize: 42
+      enableAutoSizing: 1
+      fontSizeMin: 16
+      fontSizeMax: 60
+      fontStyle: 32
+      color: {r: 1, g: 1, b: 1, a: 1}
+      alignment: 514
+      fontMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    blockRaycasts: 1
+    closeOnHeaderClick: 1
+  panelConfig:
+    backgroundAlpha: 0.9
+    panelAppearanceConfig:
+      color: {r: 0, g: 0, b: 0, a: 1}
+      imageShape: 1
+      cornerRadius: 32
+    bodyText: Touch surface to place basket
+    bodyTextConfig:
+      fontSize: 28
+      enableAutoSizing: 1
+      fontSizeMin: 16
+      fontSizeMax: 48
+      fontStyle: 0
+      color: {r: 0.85, g: 0.85, b: 0.85, a: 1}
+      alignment: 258
+      fontMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    iconConfig:
+      icons:
+      - sprite: {fileID: 21300000, guid: c0307125866f043b5a37dcd4705d5203, type: 3}
+        sizeOverride: 0
+        spacingAfter: 0
+      - sprite: {fileID: 21300000, guid: cade8ce615aa74a68857672ffcef42a3, type: 3}
+        sizeOverride: 0
+        spacingAfter: 120
+      - sprite: {fileID: 21300000, guid: 47de79efb19324f95a906dcec61b48a2, type: 3}
+        sizeOverride: 0
+        spacingAfter: 0
+      iconsLayout: 1
+      iconSize: 100
+      iconSpacing: -50
+      iconColor: {r: 1, g: 1, b: 1, a: 1}
+    screenWidthFraction: 0.8
+    preferredWidth: 0
+    preferredHeight: 0
+    minWidth: 320
+    minHeight: 140
+    blockRaycasts: 0
+    closeOnPanelClick: 0
+  animationConfig: {fileID: 11400000, guid: 037bed1d2c09c4704870fad90511d0a5, type: 2}
+  hideOtherUI: 0
