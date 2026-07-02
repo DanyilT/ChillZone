@@ -62,7 +62,7 @@
       const id = slugify(sec.heading);
       const body = (sec.content || []).join("\n");
       html +=
-        '<section class="legal-section" id="' + id + '" tabindex="-1">' +
+        '<section class="legal-section" id="' + id + '">' +
         '<h2 class="legal-heading">' +
         '<a class="legal-anchor" href="#' + id + '">' + sec.heading + "</a>" +
         '<button type="button" class="copy-link" data-hash="' + id +
