@@ -25,7 +25,7 @@
       this.innerHTML = `
         <header class="nav">
           <div class="container nav-inner">
-            <a class="brand" href="${to("top")}"><img src="../favicon.svg" alt=""> ChillZone</a>
+            <a class="brand" href="${to("top")}"><img src="favicon.svg" alt=""> ChillZone</a>
             <nav class="nav-links">
               <a href="${to("features")}">Features</a>
               <a href="${to("video")}">Video</a>
