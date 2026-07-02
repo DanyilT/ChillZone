@@ -1,0 +1,76 @@
+{
+  "title": "Terms & Conditions",
+  "version": "1.0",
+  "effectiveDate": "2026-07-01",
+  "intro": "<p>These Terms &amp; Conditions (\"Terms\") govern your use of the <strong>ChillZone</strong> mobile game (\"the App\"), developed and published by <strong>DanyT</strong> (\"the Developer\", \"we\", \"our\"). By downloading, installing, or using the App you agree to these Terms. If you do not agree, please do not use the App.</p>",
+  "sections": [
+    {
+      "heading": "1. License to use the App",
+      "content": [
+        "<p>The App is provided free of charge. The Developer grants you a personal, non-exclusive, non-transferable, revocable license to install and use the App on devices you own or control, for your personal, non-commercial entertainment.</p>"
+      ]
+    },
+    {
+      "heading": "2. Open-source code",
+      "content": [
+        "<p>The source code of ChillZone is published separately on <a href=\"https://github.com/DanyilT/ChillZone\" target=\"_blank\" rel=\"noopener\">GitHub</a> under the <strong>MIT License</strong>. Your use of that source code is governed by the MIT License terms. These Terms apply to your use of the compiled App distributed through Google Play, including any game content, artwork, and assets that are not covered by the open-source license.</p>"
+      ]
+    },
+    {
+      "heading": "3. Intellectual property",
+      "content": [
+        "<p>The ChillZone name, artwork, hand-drawn icons, and original game assets are owned by the Developer. Certain third-party assets are used under their respective licenses (for example, 3D models from Poly by Google under CC-BY, and the DOTween library by Demigiant). All other trademarks referenced belong to their respective owners.</p>"
+      ]
+    },
+    {
+      "heading": "4. Acceptable use",
+      "content": [
+        "<p>You agree not to:</p>",
+        "<ul><li>use the App for any unlawful purpose or in violation of these Terms;</li><li>attempt to disrupt or interfere with the App's intended operation; or</li><li>redistribute the compiled App as your own or use the Developer's assets outside the permissions granted by their licenses.</li></ul>"
+      ]
+    },
+    {
+      "heading": "5. Augmented-reality safety",
+      "content": [
+        "<p>ChillZone is played by moving your device around your physical surroundings. <strong>You are responsible for your own safety and that of others while playing.</strong> Always stay aware of your environment, keep a safe distance from people, pets, objects, traffic, stairs, and hazards, and do not play while driving or in any situation where distraction could be dangerous.</p>"
+      ]
+    },
+    {
+      "heading": "6. Disclaimer of warranties",
+      "content": [
+        "<p>The App is provided <strong>\"as is\" and \"as available\"</strong>, without warranties of any kind, whether express or implied, including but not limited to fitness for a particular purpose and non-infringement. We do not warrant that the App will be uninterrupted, error-free, or compatible with every device.</p>"
+      ]
+    },
+    {
+      "heading": "7. Limitation of liability",
+      "content": [
+        "<p>To the maximum extent permitted by law, the Developer shall not be liable for any indirect, incidental, special, or consequential damages, or for any loss of data or property damage, arising out of or related to your use of (or inability to use) the App.</p>"
+      ]
+    },
+    {
+      "heading": "8. Third-party services",
+      "content": [
+        "<p>The App is distributed through Google Play and uses Google Play Services for AR (ARCore). Your use of those services is also subject to their respective terms and policies, which we do not control.</p>"
+      ]
+    },
+    {
+      "heading": "9. Changes to these Terms",
+      "content": [
+        "<p>We may update these Terms from time to time. The latest version will always be available on this page, with the version number and effective date revised accordingly. Continued use of the App after changes take effect constitutes acceptance of the updated Terms.</p>"
+      ]
+    },
+    {
+      "heading": "10. Governing law",
+      "content": [
+        "<p>These Terms are governed by the laws of the country in which the Developer resides, without regard to its conflict-of-law provisions.</p>"
+      ]
+    },
+    {
+      "heading": "11. Contact",
+      "content": [
+        "<p>For any questions about these Terms, contact the Developer at <a href=\"mailto:danyt.incorporation@gmail.com\">danyt.incorporation@gmail.com</a>.</p>"
+      ]
+    }
+  ],
+  "outro": "<p>Because you're such a good boy/girl for reading the terms, here's a small gift for you — enter the code <code>eight</code> in the game to unlock a special ball skin. Enjoy!</p>"
+}

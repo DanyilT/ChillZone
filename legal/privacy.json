@@ -1,0 +1,60 @@
+{
+  "title": "Privacy Policy",
+  "version": "1.0",
+  "effectiveDate": "2026-07-01",
+  "intro": "<p>This Privacy Policy explains how the <strong>ChillZone</strong> mobile game (\"the App\", \"we\", \"our\") handles information. ChillZone is an augmented-reality game developed and published by <strong>DanyT</strong> (\"the Developer\") and distributed through Google Play. In short: <strong>ChillZone does not collect, store, or share your personal information.</strong></p>",
+  "sections": [
+    {
+      "heading": "Information we do not collect",
+      "content": [
+        "<p>The App does not require an account and does not ask for your name, email address, phone number, location, contacts, or any other personal information. We do not run advertising SDKs and we do not operate any servers that receive data from the App.</p>"
+      ]
+    },
+    {
+      "heading": "Camera and augmented reality",
+      "content": [
+        "<p>ChillZone uses your device's camera to place virtual objects in your real-world surroundings. Camera images are processed <strong>in real time on your device</strong> by Google Play Services for AR (ARCore) so the App can detect flat surfaces and render the game. The App does not record, save, upload, or transmit the camera feed or any photos or video. Nothing the camera sees leaves your device through ChillZone.</p>"
+      ]
+    },
+    {
+      "heading": "Data stored on your device",
+      "content": [
+        "<p>To make the game work, ChillZone saves a small amount of data <strong>locally on your device only</strong>, such as:</p>",
+        "<ul><li>your best scores and game progress;</li><li>which balls and baskets you have unlocked and selected;</li><li>your settings (for example audio and control preferences) and any unlock codes you enter.</li></ul>",
+        "<p>This information stays on your device, is never sent to us, and is removed when you uninstall the App. You can also clear your progress at any time using the reset option inside the game's settings or by clearing the program's storage inside your device settings.</p>"
+      ]
+    },
+    {
+      "heading": "Third-party services",
+      "content": [
+        "<p>ChillZone relies on two Google services whose own privacy practices apply:</p>",
+        "<ul><li><strong>Google Play</strong> — distributes the App and may collect data as described in <a href=\"https://policies.google.com/privacy\" target=\"_blank\" rel=\"noopener\">Google's Privacy Policy</a>.</li><li><strong>Google Play Services for AR (ARCore)</strong> — powers the augmented-reality features. See <a href=\"https://policies.google.com/privacy\" target=\"_blank\" rel=\"noopener\">Google's Privacy Policy</a>.</li></ul>",
+        "<p>We do not control and are not responsible for the practices of these third parties.</p>"
+      ]
+    },
+    {
+      "heading": "Children's privacy",
+      "content": [
+        "<p>ChillZone is suitable for a general audience and does not knowingly collect personal information from anyone, including children. If you believe a child has provided us with personal information, please contact us and we will address it.</p>"
+      ]
+    },
+    {
+      "heading": "Data security",
+      "content": [
+        "<p>Because ChillZone keeps its data on your device and does not transmit personal information, there is no server-side database of user data to be exposed. Protecting the device itself remains the user's responsibility.</p>"
+      ]
+    },
+    {
+      "heading": "Changes to this policy",
+      "content": [
+        "<p>We may update this Privacy Policy from time to time — for example if new features change how the App handles data. The latest version will always be available on this page, with the version number and effective date revised accordingly.</p>"
+      ]
+    },
+    {
+      "heading": "Contact",
+      "content": [
+        "<p>If you have any questions about this Privacy Policy, contact the Developer at <a href=\"mailto:danyt.incorporation@gmail.com\">danyt.incorporation@gmail.com</a>.</p>"
+      ]
+    }
+  ]
+}

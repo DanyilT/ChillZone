@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ChillZone — AR Throwing Game for Android</title>
+  <meta name="description" content="ChillZone is a free augmented-reality throwing game for Android. Place a bin in your room, flick the ball in, beat your best score, and unlock new balls and baskets." />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+
+  <!-- Open Graph / social -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="ChillZone — AR Throwing Game" />
+  <meta property="og:description" content="Place a bin in the real world, flick the ball in, and beat your best score. Free on Google Play." />
+  <meta property="og:image" content="https://danyilt.github.io/ChillZone/assets/og-image.jpg" />
+  <meta property="og:url" content="https://danyilt.github.io/ChillZone/" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script defer src="js/components.js"></script>
+  <noscript><style>.reveal { opacity: 1; transform: none; }</style></noscript>
+</head>
+<body>
+
+  <a id="top"></a>
+
+  <!-- ============ NAV ============ -->
+  <site-header></site-header>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow">Augmented reality · Android</span>
+        <h1>Throw it in.<br /><span class="accent-text">Chill out.</span></h1>
+        <p class="hero-sub">Drop a bin anywhere in the real world, flick the ball in, and chase a new high score. A calm little AR throwing game.</p>
+        <div class="hero-actions">
+          <span class="gplay-wrap">
+            <span class="gplay-qr" aria-hidden="true">
+              <img src="assets/play-qr.png" loading="lazy" />
+              <span>Scan to install</span>
+            </span>
+            <a class="gplay" href="https://play.google.com/store/apps/details?id=com.DanyT.ChillZone" target="_blank" rel="noopener" aria-label="Get it on Google Play">
+              <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" />
+            </a>
+          </span>
+          <a class="btn btn-ghost" href="https://github.com/DanyilT/ChillZone" target="_blank" rel="noopener">★ View source</a>
+        </div>
+        <div class="hero-meta">
+          <span><i class="dot"></i> Free to play</span>
+          <span><i class="dot"></i> Android 11+</span>
+          <span><i class="dot"></i> ARCore</span>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="device-stack" id="deviceStack">
+          <div class="phone device-slide is-front">
+            <span class="phone-glow"></span>
+            <img class="throwAnim" data-seq="tennis" src="assets/screenshots/screenshot-tennisball-spawn.png" alt="ChillZone gameplay — a tennis ball thrown into the bin in AR" />
+          </div>
+          <div class="phone device-slide is-back">
+            <span class="phone-glow"></span>
+            <img class="throwAnim" data-seq="basketball" src="assets/screenshots/screenshot-basketball-spawn.png" alt="ChillZone gameplay — a basketball arcing into the bin in AR" />
+          </div>
+        </div>
+        <div class="device-dots" id="deviceDots" aria-label="Switch ball">
+          <button class="dot-btn is-active" type="button" aria-label="Tennis-ball throw"></button>
+          <button class="dot-btn" type="button" aria-label="Basketball throw"></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ VIDEO ============ -->
+  <section id="video">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2>See it in action</h2>
+        <p>A quick look at placing the bin and sinking a few shots in AR</p>
+      </div>
+      <div class="video-wrap reveal">
+        <div class="video-card">
+          <h3>▶ Full demo</h3>
+          <div class="ratio ratio-16x9">
+            <a class="video-facade" href="https://youtu.be/1zRJ66FfypU" target="_blank" rel="noopener"
+               data-embed="1zRJ66FfypU"
+               style="background-image:url('https://i.ytimg.com/vi/1zRJ66FfypU/hqdefault.jpg')"
+               aria-label="Play the ChillZone demo video">
+              <span class="play-btn"></span>
+            </a>
+          </div>
+          <a class="video-link" href="https://youtu.be/1zRJ66FfypU" target="_blank" rel="noopener">Watch on YouTube ↗</a>
+        </div>
+        <div class="video-card vertical">
+          <h3>▶ Short</h3>
+          <div class="ratio ratio-9x16">
+            <a class="video-facade" href="https://youtube.com/shorts/5dckZee2v_M" target="_blank" rel="noopener"
+               data-embed="5dckZee2v_M"
+               style="background-image:url('https://i.ytimg.com/vi/5dckZee2v_M/hqdefault.jpg')"
+               aria-label="Play the ChillZone short video">
+              <span class="play-btn"></span>
+            </a>
+          </div>
+          <a class="video-link" href="https://youtube.com/shorts/5dckZee2v_M" target="_blank" rel="noopener">Watch on YouTube ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FEATURES ============ -->
+  <section id="features">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2>Simple to pick up, <span class="accent-text">easy to lose track of time</span></h2>
+        <p>Real physics, real space, and just enough to unlock to keep you coming back</p>
+      </div>
+      <div class="features">
+        <div class="feature reveal">
+          <div class="ico">🏀</div>
+          <h3>Real physics throws</h3>
+          <p>Flick to launch an actual ball — swipe speed sets the power, a drag upward sets the arc, and a curved swipe adds spin.</p>
+        </div>
+        <div class="feature reveal">
+          <div class="ico">📱</div>
+          <h3>Plays in your room</h3>
+          <p>Scan a flat surface and drop the bin onto your floor or desk. Move it, delete it, and shoot from any angle.</p>
+        </div>
+        <div class="feature reveal">
+          <div class="ico">🎨</div>
+          <h3>Unlockable balls & baskets</h3>
+          <p>Collect balls and basket skins of different rarities by beating scores, earning achievements, or entering codes.</p>
+        </div>
+        <div class="feature reveal">
+          <div class="ico">🎯</div>
+          <h3>Three throw modes</h3>
+          <p>From dead-straight shots to full drag-path aiming with curve and spin — pick how much control you want.</p>
+        </div>
+        <div class="feature reveal">
+          <div class="ico">🏆</div>
+          <h3>Beat your best</h3>
+          <p>Every clean shot adds to your run. Chase your personal best and keep the streak alive.</p>
+        </div>
+        <div class="feature reveal">
+          <div class="ico">✦</div>
+          <h3>Free & open source</h3>
+          <p>No paywalls. The full Unity project is on GitHub under the MIT license for anyone to learn from.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HOW TO PLAY ============ -->
+  <section id="how">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2>How to play</h2>
+        <p>From empty room to nothing-but-net in four steps</p>
+      </div>
+      <div class="steps">
+        <div class="step reveal">
+          <h3>Scan</h3>
+          <p>Move your phone around to detect a flat horizontal surface</p>
+        </div>
+        <div class="step reveal">
+          <h3>Place</h3>
+          <p>Tap the surface to drop the bin into the real world</p>
+        </div>
+        <div class="step reveal">
+          <h3>Flick</h3>
+          <p>Drag the ball and flick to throw</p>
+        </div>
+        <div class="step reveal">
+          <h3>Score</h3>
+          <p>Sink it in the bin and beat your best result</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SCREENSHOTS ============ -->
+  <section id="shots">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2>Screenshots</h2>
+        <p>Hand-drawn UI, low-poly props, and your room as the court</p>
+      </div>
+      <div class="shots reveal" id="shotsGallery">
+        <div class="shots-images">
+          <figure class="shot-phone shot-lead">
+            <div class="phone phone-sm">
+              <video src="assets/screenrecordings/screenrecording-ball-picker.mp4" autoplay muted loop playsinline poster="assets/screenshots/screenshot-ball-picker.png"></video>
+            </div>
+            <figcaption>Unlock balls &amp; baskets of every rarity</figcaption>
+          </figure>
+          <figure class="shot-phone">
+            <div class="phone phone-sm">
+              <img src="assets/screenshots/screenshot-basketball-spawn.png" alt="Lining up a basketball shot at the bin" loading="lazy" />
+            </div>
+            <figcaption>Line up the shot and flick it in</figcaption>
+          </figure>
+          <figure class="shot-phone">
+            <div class="phone phone-sm">
+              <img src="assets/screenshots/screenshot-tennisball-spawn.png" alt="Tennis ball ready to throw at the bin" loading="lazy" />
+            </div>
+            <figcaption>Swap balls — tennis, basketball &amp; more</figcaption>
+          </figure>
+          <figure class="shot-phone">
+            <div class="phone phone-sm">
+              <img src="assets/screenshots/screenshot-settings.png" alt="ChillZone settings screen" loading="lazy" />
+            </div>
+            <figcaption>Tune audio, controls &amp; throw modes</figcaption>
+          </figure>
+        </div>
+        <div class="shots-videos">
+          <figure class="shot-phone">
+            <div class="phone phone-sm">
+              <video src="assets/screenrecordings/compressed/screenrecording-hit.mp4" autoplay muted loop playsinline preload="metadata"></video>
+            </div>
+            <figcaption>Nothing but a win</figcaption>
+          </figure>
+          <figure class="shot-phone">
+            <div class="phone phone-sm">
+              <video src="assets/screenrecordings/compressed/screenrecording-miss.mp4" autoplay muted loop playsinline preload="metadata"></video>
+            </div>
+            <figcaption>…or not. Line up the next one</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HOW IT WAS MADE ============ -->
+  <section id="made">
+    <div class="container">
+      <div class="made-grid reveal">
+        <div class="made-copy">
+          <span class="eyebrow">Behind the scenes</span>
+          <h2>Rebuilt from scratch in Unity</h2>
+          <p>ChillZone 2.0 is a ground-up remake. The ball is a real physics object you actually throw, balls and baskets are data-driven unlockable content, and the UI, backgrounds and settings are generated in code. Out went the hard-coded prefabs and god-classes — in came an event-driven, modular architecture built to scale.</p>
+          <div class="tech-badges">
+            <span>Unity 2022.3 LTS</span>
+            <span>AR Foundation · ARCore</span>
+            <span>URP</span>
+            <span>C# · Input System</span>
+            <span>DOTween</span>
+          </div>
+        </div>
+        <figure class="made-shot">
+          <img src="assets/screenshot-editor.png" alt="ChillZone open in the Unity editor" loading="lazy" />
+          <figcaption>The full project open in the Unity editor — MIT-licensed on GitHub.</figcaption>
+        </figure>
+        <a class="btn btn-ghost made-cta" href="https://github.com/DanyilT/ChillZone" target="_blank" rel="noopener">★ Explore the source</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <section>
+    <div class="container">
+      <div class="cta reveal">
+        <h2>Ready to play?</h2>
+        <p>Grab ChillZone free on Google Play and turn any room into a court.</p>
+        <div class="cta-actions">
+          <span class="gplay-wrap">
+            <span class="gplay-qr" aria-hidden="true">
+              <img src="assets/play-qr.png" loading="lazy" />
+              <span>Scan to install</span>
+            </span>
+            <a class="gplay" href="https://play.google.com/store/apps/details?id=com.DanyT.ChillZone" target="_blank" rel="noopener" aria-label="Get it on Google Play">
+              <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" />
+            </a>
+          </span>
+          <a class="btn" href="https://www.buymeacoffee.com/DanyT" target="_blank" rel="noopener" style="padding: 9px;">
+            <img src="https://cdn.buymeacoffee.com/buttons/v2/default-violet.png" alt="Buy Me a Coffee" style="height: 100% !important;width: auto !important;" >
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <site-footer></site-footer>
+
+  <script>
+    // show the scan-to-install QR on hover for non-Android desktops (pointer with hover)
+    if (!/android/i.test(navigator.userAgent || "") && window.matchMedia("(hover: hover)").matches) {
+      document.body.classList.add("qr-enabled");
+    }
+
+    // reveal on scroll
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+
+    // click-to-play: load the YouTube player only when the user asks for it
+    document.querySelectorAll(".video-facade").forEach((facade) => {
+      facade.addEventListener("click", (ev) => {
+        ev.preventDefault();
+        const id = facade.dataset.embed;
+        const box = facade.parentElement; // .ratio
+        const frame = document.createElement("iframe");
+        frame.src = "https://www.youtube-nocookie.com/embed/" + id + "?autoplay=1&rel=0";
+        frame.title = facade.getAttribute("aria-label") || "ChillZone video";
+        frame.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+        frame.allowFullscreen = true;
+        box.innerHTML = "";
+        box.appendChild(frame);
+      });
+    });
+
+    // hero: loop each ball's throw sequence + a swipeable device stack
+    (function () {
+      const SEQS = {
+        basketball: ["assets/screenshots/screenshot-basketball-spawn.png"].concat(
+          [1, 2, 3, 4, 5, 6, 7, 9].map((n) => "assets/screenshots/screenshot-basketball-trhown-sequence_" + n + ".png")
+        ),
+        tennis: ["assets/screenshots/screenshot-tennisball-spawn.png"].concat(
+                [1, 2, 3].map((n) => "assets/screenshots/screenshot-tennisball-thrown-sequence_" + n + ".png")
+        ),
+      };
+      const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      let heroVisible = true;
+
+      document.querySelectorAll(".throwAnim").forEach((el) => {
+        const frames = SEQS[el.dataset.seq];
+        if (!frames) return;
+        frames.forEach((src) => { const im = new Image(); im.src = src; }); // preload
+        if (reduce) { el.src = frames[frames.length - 1]; return; }
+        let i = 0;
+        (function tick() {
+          if (!heroVisible) { setTimeout(tick, 400); return; } // idle while the hero is off-screen
+          el.src = frames[i];
+          const last = i === frames.length - 1;
+          i = (i + 1) % frames.length;
+          setTimeout(tick, last ? 1200 : 170); // linger on the score frame, then loop
+        })();
+      });
+
+      // swipeable stack: swap which device sits in front
+      const stack = document.getElementById("deviceStack");
+      if (!stack) return;
+      stack.addEventListener("dragstart", (e) => e.preventDefault()); // no image-drag ghost while swiping
+
+      // pause the frame loops when the hero scrolls out of view (skips image decodes)
+      if (!reduce && "IntersectionObserver" in window) {
+        new IntersectionObserver((entries) => { heroVisible = entries[0].isIntersecting; }, { threshold: 0.05 })
+          .observe(stack);
+      }
+
+      const slides = [...stack.querySelectorAll(".device-slide")];
+      const dots = [...document.querySelectorAll("#deviceDots .dot-btn")];
+      let front = 0;
+      const setFront = (n) => {
+        front = (n + slides.length) % slides.length;
+        slides.forEach((s, idx) => {
+          s.classList.toggle("is-front", idx === front);
+          s.classList.toggle("is-back", idx !== front);
+        });
+        dots.forEach((d, idx) => d.classList.toggle("is-active", idx === front));
+      };
+      dots.forEach((d, idx) => d.addEventListener("click", () => setFront(idx)));
+      let x0 = null, swiped = false;
+      slides.forEach((s, idx) =>
+        s.addEventListener("click", () => {
+          if (swiped) { swiped = false; return; } // a swipe already handled it
+          if (!s.classList.contains("is-front")) setFront(idx);
+        })
+      );
+      stack.addEventListener("pointerdown", (e) => {
+        x0 = e.clientX;
+        swiped = false;
+        try { stack.setPointerCapture(e.pointerId); } catch (_) {} // keep move/up even if the finger leaves
+      });
+      stack.addEventListener("pointerup", (e) => {
+        if (x0 === null) return;
+        const dx = e.clientX - x0;
+        x0 = null;
+        if (Math.abs(dx) > 40) { swiped = true; setFront(front + (dx < 0 ? 1 : -1)); }
+      });
+    })();
+
+    // pause gallery clips when off-screen; don't autoplay them under reduced motion
+    (function () {
+      const vids = document.querySelectorAll(".phone video");
+      if (!vids.length) return;
+      if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        vids.forEach((v) => { v.autoplay = false; v.pause(); });
+        return;
+      }
+      if (!("IntersectionObserver" in window)) return;
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => { e.isIntersecting ? e.target.play().catch(() => {}) : e.target.pause(); });
+      }, { threshold: 0.1 });
+      vids.forEach((v) => io.observe(v));
+    })();
+
+    // screenshots: on wide screens the image deck spreads open as you scroll — the amount of
+    // spread is driven by the deck's position (scroll-scrubbed), not a one-shot trigger
+    (function () {
+      const shots = document.getElementById("shotsGallery");
+      if (!shots) return;
+      const imagesRow = shots.querySelector(".shots-images");
+      const wide = window.matchMedia("(min-width: 1200px)");
+      const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const vids = [...shots.querySelectorAll(".shots-videos .shot-phone")];
+
+      // FLIP: flex-wrap can't be transitioned, so when a video wraps to another row we play the
+      // position delta on transform — it slides from its old spot to the new one instead of jumping
+      const flip = () => {
+        vids.forEach((v) => {
+          const top = v.offsetTop;
+          const rect = v.getBoundingClientRect();
+          if (v._top != null && Math.abs(top - v._top) > 20 && v._rect) {
+            const dx = v._rect.left - rect.left;
+            const dy = v._rect.top - rect.top;
+            v.style.transition = "none";
+            v.style.transform = "translate(" + dx + "px, " + dy + "px)";
+            void v.offsetWidth; // commit the inverted position, then play home
+            v.style.transition = "transform 0.55s cubic-bezier(0.2, 0.7, 0.2, 1)";
+            v.style.transform = "";
+          }
+          v._top = top;
+          v._rect = rect;
+        });
+      };
+
+      let ticking = false;
+      const update = () => {
+        ticking = false;
+        if (!wide.matches) {
+          shots.style.removeProperty("--spread");
+          vids.forEach((v) => { v._top = null; v.style.transform = ""; v.style.transition = ""; });
+          return;
+        }
+        if (reduce) { shots.style.setProperty("--spread", "1"); return; }
+        const vh = window.innerHeight || document.documentElement.clientHeight;
+        const top = imagesRow.getBoundingClientRect().top;
+        // still stacked while the deck's top is at 60% of the viewport; fully spread by 15%
+        const p = (0.6 * vh - top) / (0.45 * vh);
+        shots.style.setProperty("--spread", Math.max(0, Math.min(1, p)).toFixed(3));
+        flip();
+      };
+      const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } };
+      addEventListener("scroll", onScroll, { passive: true });
+      addEventListener("resize", onScroll, { passive: true });
+      update();
+
+      // mobile carousels: tap a neighbouring card to bring it to centre (like swiping to it)
+      shots.querySelectorAll(".shots-images, .shots-videos").forEach((row) => {
+        row.querySelectorAll(".shot-phone").forEach((item) => {
+          item.addEventListener("click", () => {
+            if (row.scrollWidth <= row.clientWidth + 4) return; // only when it's a horizontal carousel
+            item.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+          });
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

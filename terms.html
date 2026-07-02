@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms &amp; Conditions — ChillZone</title>
+  <meta name="description" content="Terms and Conditions for the ChillZone augmented-reality game." />
+  <meta name="robots" content="index, follow" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script defer src="js/components.js"></script>
+  <script defer src="legal/legal.js"></script>
+</head>
+<body>
+
+  <site-header></site-header>
+
+  <!-- Content is rendered from terms.json by legal.js -->
+  <main class="legal" data-doc="terms">
+    <noscript>
+      <div class="container legal-wrap">
+        <a class="back" href="index.html">← Back to home</a>
+        <p>This page loads the Terms &amp; Conditions with JavaScript. With JavaScript disabled, you can read the raw document at <a href="legal/terms.json">terms.json</a>.</p>
+      </div>
+    </noscript>
+  </main>
+
+  <site-footer-slim></site-footer-slim>
+</body>
+</html>
