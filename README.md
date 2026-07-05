@@ -10,7 +10,7 @@
 
 > **ChillZone 2** is the ground-up **2.0** remake of ChillZone. The core game is unchanged — place a hoop on a real surface and shoot — but everything under the hood was rebuilt from scratch for real physics, unlockable content, and much cleaner, more scalable code. On the Play Store it ships as the same ChillZone (v2.x.x).
 
-<p align="center"><img src="./Recordings/ScreenshotUnity.png" width="70%"> <img src="./Recordings/Screenshot.jpg" width="25%"></p>
+<p align="center"><img alt="ScreenshotUnity" src="https://github.com/user-attachments/assets/f6e46c76-3f83-4cdf-a87d-62c329e4510d" width="70%"> <img alt="Screenshot" src="https://github.com/user-attachments/assets/f64133f7-bd70-4ca4-b840-cd55a320da21" width="22%"></p>
 
 ---
 
