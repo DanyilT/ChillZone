@@ -13,7 +13,7 @@ namespace ChillZone.Basket.Utils
     /// both basket placement (<see cref="BasketSpawnManager"></see>)
     /// and repositioning (<see cref="BasketController"></see>).
     /// </summary>
-    public sealed class SurfaceRaycaster
+    public sealed class SurfaceRaycaster : ISurfaceRaycaster
     {
         private readonly ARRaycastManager _raycastManager;
         private readonly ARPlaneManager _planeManager;

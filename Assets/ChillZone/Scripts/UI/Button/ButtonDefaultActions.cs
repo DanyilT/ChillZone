@@ -40,6 +40,9 @@ namespace ChillZone.UI.Button1
         /// <summary>Request clearing scanned surfaces and returning to the scanning state; GameFlowController handles it via the event bus.</summary>
         public static Action ResetScanning() => () => EventBus<ResetScanRequestedEvent>.Raise(default);
 
+        /// <summary>Request toggling the virtual (camera-off) environment; GameFlowController handles it via the event bus.</summary>
+        public static Action ToggleVirtualEnvironment() => () => EventBus<ToggleVirtualEnvironmentRequestedEvent>.Raise(default);
+
         /// <summary>Open a URL in the system browser.</summary>
         public static Action OpenURL(string url) => () => Application.OpenURL(url);
 

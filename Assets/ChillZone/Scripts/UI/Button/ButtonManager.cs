@@ -405,6 +405,7 @@ namespace ChillZone.UI.Button1
             ButtonActionType.Quit => ButtonDefaultActions.Quit(),
             ButtonActionType.ResetScanning => ButtonDefaultActions.ResetScanning(),
             ButtonActionType.ResetBall => ButtonDefaultActions.ResetBall(),
+            ButtonActionType.ToggleVirtualEnvironment => ButtonDefaultActions.ToggleVirtualEnvironment(),
             _ => null
         };
 

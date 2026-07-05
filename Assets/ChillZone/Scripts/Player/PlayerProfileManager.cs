@@ -78,6 +78,22 @@ namespace ChillZone.Player
             // Score/time/throw/combo achievements are evaluated by AchievementService via gameplay events.
         }
 
+        /// <summary>Persist the in-progress run (score/throws/time) so it survives an app exit and feeds the live BestScore (score-based unlocks). Committed to bestScores separately on a miss.</summary>
+        public void UpdateActiveRun(string contextId, int score, int throws, float timeSeconds)
+        {
+            var profile = EnsureProfile();
+            profile.UpdateActiveRun(contextId, score, throws, timeSeconds);
+            Save();
+        }
+
+        /// <summary>Clear the in-progress run (on run end / reset).</summary>
+        public void ClearActiveRun()
+        {
+            var profile = EnsureProfile();
+            profile.ClearActiveRun();
+            Save();
+        }
+
         public void UnlockBall(string ballId)
         {
             var changed = EnsureProfile().UnlockBall(ballId);

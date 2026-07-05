@@ -24,14 +24,16 @@ namespace ChillZone.Game
     public class GameFlowController : MonoBehaviour
     {
         [Header("Window Configs")]
-        [SerializeField, Tooltip("Shown on first launch, dismissed by user tap. If null, skips to scanning.")]
+        [SerializeField, Tooltip("Shown on first launch, dismissed by user tap. If null, skips to the manual.")]
         private WindowConfig welcomeWindowConfig;
         [SerializeField, Tooltip("Shown while scanning for surfaces. Auto-advances to placing when a surface is found.")]
         private WindowConfig scanWindowConfig;
         [SerializeField, Tooltip("Shown while placing the basket. Auto-advances to manual when the basket is placed.")]
         private WindowConfig placeWindowConfig;
-        [SerializeField, Tooltip("Shown on first launch after placing the basket. Dismissed by user tap. If null, skips to playing.")]
+        [SerializeField, Tooltip("Shown on first launch right after the welcome window (before scanning). Dismissed by user tap. If null, skips to scanning.")]
         private WindowConfig manualWindowConfig;
+        [SerializeField, Tooltip("Shown when the device doesn't support AR — the game falls back to the virtual environment. Optional; if null, virtual mode starts silently.")]
+        private WindowConfig arUnsupportedWindowConfig;
 
         [Header("Gameplay References")]
         [SerializeField, Tooltip("If empty, found automatically.")]
@@ -44,6 +46,8 @@ namespace ChillZone.Game
         private BasketSpawnManager basketSpawnManager;
         [SerializeField, Tooltip("If empty, found automatically.")]
         private ARSession arSession;
+        [SerializeField, Tooltip("Virtual (camera-off) environment controller — the fallback play mode for non-AR devices, and an opt-in toggle otherwise. If empty, found automatically.")]
+        private VirtualEnvironmentController virtualEnvironment;
         [SerializeField, Tooltip("AR camera. Kept rendering while paused (the overlay shows a frozen snapshot). If empty, uses Camera.main.")]
         private Camera arCamera;
 
@@ -64,9 +68,17 @@ namespace ChillZone.Game
         /// <summary>Current game-flow state (read-only). Lets late-enabled UI (e.g. the HUD visibility controller) sync without waiting for the next transition.</summary>
         public GameState CurrentState { get; private set; }
 
+        /// <summary>True if the device supports AR (resolved once at startup). False → the game is locked into the virtual environment, so the virtual-env toggle should be hidden.</summary>
+        public bool ArSupported { get; private set; } = true;
+
         // Welcome and Manual are both first-run-only, gated on the ManualViewed pref (written when the
         // manual is dismissed). Each is dismissed only by the user tapping its panel or header.
         private bool _manualViewed;
+
+        // Virtual (camera-off) environment mode. _arSupported is resolved once at startup; when AR is
+        // unsupported the game is locked into virtual mode (toggle-off requests are ignored).
+        private bool _virtualMode;
+
         private GameState _stateBeforePause = GameState.Playing;
         private PauseOverlay _pauseOverlay;
         private RenderTexture _pauseSnapshot;
@@ -96,6 +108,7 @@ namespace ChillZone.Game
             surfaceDetector ??= FindObjectOfType<ARSurfaceDetector>();
             basketSpawnManager ??= FindObjectOfType<BasketSpawnManager>();
             arSession ??= FindObjectOfType<ARSession>();
+            virtualEnvironment ??= FindObjectOfType<VirtualEnvironmentController>();
 
             RegisterWindowConfigs();
         }
@@ -110,6 +123,32 @@ namespace ChillZone.Game
             {
                 StartCoroutine(DebugAutoStart());
                 return;
+            }
+
+            StartCoroutine(InitializeFlow());
+        }
+
+        // Resolves AR support before starting onboarding. On a device without ARCore/ARKit, forces the virtual
+        // environment (and a notification) instead of stranding the player on a scan screen that never finds a
+        // surface. CheckAvailability is a quick platform capability query, not a full session start.
+        private IEnumerator InitializeFlow()
+        {
+            yield return ARSession.CheckAvailability();
+
+            if (ARSession.state == ARSessionState.Unsupported)
+            {
+                ArSupported = false;
+                EnterForcedVirtualMode();
+                yield break;
+            }
+
+            // Restore the user's last virtual-env choice (persisted) across scene loads / restarts. AR is supported
+            // here, so if they had turned it on, drop straight into virtual placing instead of the AR onboarding.
+            if (PlayerPrefs.GetInt(PrefKeys.VirtualEnvironment, 0) == 1)
+            {
+                ApplyVirtualMode(true);
+                ShowState(GameState.Placing);
+                yield break;
             }
 
             ShowState(GameState.Welcome);
@@ -133,7 +172,7 @@ namespace ChillZone.Game
             if (CurrentState is GameState.Placing or GameState.Playing)
             {
                 basketSpawnManager.HandleInput(
-                    onPlaced: () => ShowState(GameState.Manual),
+                    onPlaced: () => ShowState(GameState.Playing),
                     onDestroyed: () => ShowState(GameState.Placing));
             }
         }
@@ -147,6 +186,7 @@ namespace ChillZone.Game
             EventBus<BallMissedEvent>.Subscribe(OnBallMissed);
             EventBus<TogglePauseRequestedEvent>.Subscribe(OnTogglePauseRequested);
             EventBus<ResetScanRequestedEvent>.Subscribe(OnResetScanRequested);
+            EventBus<ToggleVirtualEnvironmentRequestedEvent>.Subscribe(OnToggleVirtualEnvironmentRequested);
         }
 
         private void OnDisable()
@@ -154,6 +194,7 @@ namespace ChillZone.Game
             EventBus<BallMissedEvent>.Unsubscribe(OnBallMissed);
             EventBus<TogglePauseRequestedEvent>.Unsubscribe(OnTogglePauseRequested);
             EventBus<ResetScanRequestedEvent>.Unsubscribe(OnResetScanRequested);
+            EventBus<ToggleVirtualEnvironmentRequestedEvent>.Unsubscribe(OnToggleVirtualEnvironmentRequested);
         }
 
         private void OnDestroy()
@@ -284,7 +325,7 @@ namespace ChillZone.Game
                     // While shown it stays until the user taps the panel or header (no backdrop close, no
                     // automatic skip); the no-op backdrop handler overrides the config default so an outside
                     // tap can never dismiss it.
-                    if (_manualViewed || !welcomeWindowConfig) { ShowState(GameState.Scanning); return; }
+                    if (_manualViewed || !welcomeWindowConfig) { ShowState(GameState.Manual); return; }
                     WindowManager.Instance?.Show(welcomeWindowConfig,
                         new WindowShowOptions()
                             .SetOnPanelClick(OnWelcomeDismissed)
@@ -304,9 +345,9 @@ namespace ChillZone.Game
                     break;
 
                 case GameState.Manual:
-                    // First-run-only (cached on dismiss). If no config is wired, don't
-                    // trap the flow here — go straight to play so the basket is usable.
-                    if (_manualViewed || !manualWindowConfig) { ShowState(GameState.Playing); return; }
+                    // First-run-only (cached on dismiss), shown right after Welcome. If no config is wired,
+                    // don't trap the flow here — go straight to scanning so onboarding continues.
+                    if (_manualViewed || !manualWindowConfig) { ShowState(GameState.Scanning); return; }
                     WindowManager.Instance?.Show(manualWindowConfig,
                         new WindowShowOptions()
                             .SetOnPanelClick(OnManualDismissed)
@@ -328,7 +369,7 @@ namespace ChillZone.Game
         private void OnWelcomeDismissed()
         {
             if (CurrentState != GameState.Welcome) return; // already advanced
-            ShowState(GameState.Scanning);
+            ShowState(GameState.Manual);
         }
 
         private void OnManualDismissed()
@@ -337,7 +378,7 @@ namespace ChillZone.Game
             PlayerPrefs.SetInt(PrefKeys.ManualViewed, 1);
             PlayerPrefs.Save();
             _manualViewed = true;
-            ShowState(GameState.Playing);
+            ShowState(GameState.Scanning);
         }
 
         #endregion
@@ -355,12 +396,90 @@ namespace ChillZone.Game
 
         private void OnResetScanRequested(ResetScanRequestedEvent evt) => ResetScanning();
 
-        // Clears the placed basket and all scanned AR planes, then returns to the scanning state.
+        private void OnToggleVirtualEnvironmentRequested(ToggleVirtualEnvironmentRequestedEvent evt) => RequestToggleVirtualMode();
+
+        // Clears the placed basket and rescans. In virtual mode there's no surface to scan (the ground is always
+        // present), so it goes straight back to placing on the existing virtual ground instead of scanning.
         private void ResetScanning()
         {
             basketSpawnManager.RemoveBasket();
+
+            if (_virtualMode)
+            {
+                ShowState(GameState.Placing);
+                return;
+            }
+
             if (arSession) arSession.Reset();  // destroys all trackables (planes) and restarts tracking
             ShowState(GameState.Scanning);  // also calls surfaceDetector.ResetDetection()
+        }
+
+        #endregion
+
+        #region virtual environment
+
+        // Toggle from the HUD button. On devices without AR, virtual mode is the only mode — ignore turn-off.
+        private void RequestToggleVirtualMode()
+        {
+            if (!ArSupported) return;
+
+            var turnOn = !_virtualMode;
+            PlayerPrefs.SetInt(PrefKeys.VirtualEnvironment, turnOn ? 1 : 0);  // remember the choice across scene loads / restarts
+            PlayerPrefs.Save();
+            ApplyVirtualMode(turnOn);
+            ShowState(turnOn ? GameState.Placing : GameState.Scanning);
+        }
+
+        // Forced at startup when AR is unsupported: enter virtual mode and show the notice; dismissing it (or a
+        // missing config) drops straight into placing on the virtual ground.
+        private void EnterForcedVirtualMode()
+        {
+            ApplyVirtualMode(true);
+
+            // First-run-only notice (like the welcome/manual windows): once dismissed it never shows again — the
+            // device is simply always in virtual mode. Skip straight to placing when already seen or unconfigured.
+            var noticeSeen = PlayerPrefs.GetInt(PrefKeys.ArUnsupportedNoticeViewed, 0) == 1;
+            if (noticeSeen || !arUnsupportedWindowConfig)
+            {
+                ShowState(GameState.Placing);
+                return;
+            }
+
+            WindowManager.Instance?.Show(arUnsupportedWindowConfig,
+                new WindowShowOptions()
+                    .SetOnPanelClick(OnArUnsupportedNoticeDismissed)
+                    .SetOnHeaderClick(OnArUnsupportedNoticeDismissed)
+                    .SetOnBackdropClick(OnArUnsupportedNoticeDismissed));
+        }
+
+        private void OnArUnsupportedNoticeDismissed()
+        {
+            PlayerPrefs.SetInt(PrefKeys.ArUnsupportedNoticeViewed, 1);
+            PlayerPrefs.Save();
+            ShowState(GameState.Placing);
+        }
+
+        // Switches between AR and virtual placement WITHOUT changing the flow state (the caller picks the next
+        // state). Clears any placed basket, flips the camera feed/environment, and points the basket spawner at
+        // the matching ground raycaster.
+        private void ApplyVirtualMode(bool on)
+        {
+            _virtualMode = on;
+            basketSpawnManager.RemoveBasket();
+
+            if (on)
+            {
+                SetAREnabled(false);
+                if (virtualEnvironment) virtualEnvironment.SetEnabled(true);
+                basketSpawnManager.UseVirtualGround(0f, virtualEnvironment ? virtualEnvironment.GroundHalfExtent : 0f);
+            }
+            else
+            {
+                if (virtualEnvironment) virtualEnvironment.SetEnabled(false);
+                basketSpawnManager.UseARSurface();
+                SetAREnabled(true);
+                if (arSession) arSession.Reset();
+            }
         }
 
         #endregion

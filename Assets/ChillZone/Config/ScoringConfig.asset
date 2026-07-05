@@ -16,7 +16,9 @@ MonoBehaviour:
   minMultiplierDistance: 0.5
   maxMultiplierDistance: 5
   maxDistanceMultiplier: 7
+  nearDistanceMultiplier: 0
   dragPathBonus: 1.15
   maxSpinBonus: 10
   spinBonusFactor: 0.5
+  wallBounceMultiplier: 2
   scoreFlashDuration: 2.5

@@ -52,7 +52,7 @@ namespace ChillZone.Gameplay
         {
             if (Instance != null && Instance != this) { Destroy(gameObject); return; }
             Instance = this;
-            ResetRun();
+            RestoreOrResetRun();
         }
 
         private void OnDestroy()
@@ -86,11 +86,15 @@ namespace ChillZone.Gameplay
 
             var basePoints = scoringConfig.basePoints;
 
-            var distance = Vector3.Distance(_lastReleasePosition, hitPoint);
-            var distMult = ComputeDistanceMultiplier(distance);
+            // Horizontal (ground-plane) distance only — a throw from (almost) directly above the basket is trivial
+            // regardless of the height drop, so vertical separation must not count toward the distance multiplier.
+            var horizontal = hitPoint - _lastReleasePosition;
+            horizontal.y = 0f;
+            var distMult = ComputeDistanceMultiplier(horizontal.magnitude);
             var diffResult = ThrowDifficultyEvaluator.Evaluate(_lastThrowMode, _lastCurvature, scoringConfig);
             var basketMult = ResolveBasketMultiplier();
-            var totalMult = distMult * diffResult.Multiplier * basketMult;
+            var wallBounceMult = ResolveWallBounceMultiplier(ball);
+            var totalMult = distMult * diffResult.Multiplier * basketMult * wallBounceMult;
             var finalPoints = Mathf.RoundToInt(basePoints * totalMult);
 
             if (totalMult > _peakMultiplier) _peakMultiplier = totalMult;
@@ -100,12 +104,17 @@ namespace ChillZone.Gameplay
 
             CurrentScore += finalPoints;
 
+            // Persist the in-progress run immediately so it survives an app exit and the record / score-based
+            // unlock criteria reflect it live — not only after the run commits on a miss.
+            PlayerProfileManager.Instance?.UpdateActiveRun(ResolveContextId(), CurrentScore, ThrowCount, ElapsedSeconds);
+
             EventBus<BallScoredEvent>.Raise(new BallScoredEvent
             {
                 FinalPoints = finalPoints,
                 DistanceMultiplier = distMult,
                 DifficultyMultiplier = diffResult.Multiplier,
                 BasketMultiplier = basketMult,
+                WallBounceMultiplier = wallBounceMult,
                 DifficultyLabel = diffResult.Label,
                 HitPoint = hitPoint,
             });
@@ -146,6 +155,7 @@ namespace ChillZone.Gameplay
             ThrowCount = 0;
             RunStartTime = Time.time;
             _peakMultiplier = 1f;
+            PlayerProfileManager.Instance?.ClearActiveRun();
 
             EventBus<ScoreUpdatedEvent>.Raise(new ScoreUpdatedEvent
             {
@@ -158,10 +168,30 @@ namespace ChillZone.Gameplay
 
         #region internals
 
+        // On scene load, resume a run that was still in progress when the app last closed (so the score isn't lost
+        // and shows as the current score); otherwise start fresh.
+        private void RestoreOrResetRun()
+        {
+            var run = PlayerProfileManager.Instance ? PlayerProfileManager.Instance.EnsureProfile().activeRun : null;
+            if (run is { inProgress: true })
+            {
+                CurrentScore = run.score;
+                ThrowCount = Mathf.Max(1, run.throws); // >0 so HasActiveRun is true → StartPlaySession keeps the score
+                RunStartTime = Time.time - run.elapsedSeconds;
+                _peakMultiplier = 1f;
+            }
+            else
+            {
+                ResetRun();
+            }
+        }
+
+        // Score context id for the current throw mode (the value RegisterScore, the active run, and RunEnded use).
+        private string ResolveContextId() => gameConfig ? gameConfig.ResolveScoreContextId(_lastThrowMode) : "basket-run";
+
         private void CommitRun()
         {
-            var contextId = gameConfig ? gameConfig.ResolveScoreContextId(_lastThrowMode) : "basket-run";
-            PlayerProfileManager.Instance?.RegisterScore(contextId, CurrentScore, ElapsedSeconds);
+            PlayerProfileManager.Instance?.RegisterScore(ResolveContextId(), CurrentScore, ElapsedSeconds);
 
             EventBus<RunEndedEvent>.Raise(new RunEndedEvent
             {
@@ -174,6 +204,14 @@ namespace ChillZone.Gameplay
         private float ComputeDistanceMultiplier(float distance)
         {
             if (!scoringConfig) return 1f;
+
+            // Below the baseline distance, ramp DOWN from 1× toward nearDistanceMultiplier (≈0) so a trivial
+            // point-blank shot — e.g. a basket right under the spawn point — scores little to nothing.
+            if (distance < scoringConfig.minMultiplierDistance)
+                return Mathf.Lerp(scoringConfig.nearDistanceMultiplier, 1f,
+                    Mathf.InverseLerp(0f, scoringConfig.minMultiplierDistance, distance));
+
+            // Beyond the baseline, ramp UP from 1× to the max for longer shots.
             return Mathf.Lerp(1f, scoringConfig.maxDistanceMultiplier,
                 Mathf.InverseLerp(scoringConfig.minMultiplierDistance, scoringConfig.maxMultiplierDistance, distance));
         }
@@ -183,6 +221,14 @@ namespace ChillZone.Gameplay
         {
             var basket = ContentManager.Instance != null ? ContentManager.Instance.GetSelected<BasketData>(ContentTypes.Basket) : null;
             return basket != null && basket.scoreMultiplier > 0f ? basket.scoreMultiplier : 1f;
+        }
+
+        // Trick-shot bonus: a basket scored after the ball bounced off a virtual-environment wall (1× if it didn't
+        // bounce or the config is unset). WallBounceCount is always 0 in AR, so this only ever applies in virtual mode.
+        private float ResolveWallBounceMultiplier(BallBehaviour ball)
+        {
+            if (!scoringConfig || ball == null || ball.WallBounceCount <= 0) return 1f;
+            return scoringConfig.wallBounceMultiplier > 0f ? scoringConfig.wallBounceMultiplier : 1f;
         }
 
         #endregion

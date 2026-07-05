@@ -138,6 +138,7 @@ namespace ChillZone.UI.Button1.Config
         TogglePause,
         ResetBall,
         ResetScanning,
+        ToggleVirtualEnvironment,
         OpenURL,
         LoadScene,
         LoadNextScene,

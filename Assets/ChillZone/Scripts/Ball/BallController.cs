@@ -19,6 +19,9 @@ namespace ChillZone.Ball
         /// <summary>True while the player is actively dragging the ready ball. BallSpawnPoint reads this to suspend its screen-follow so the finger owns the ball mid-aim.</summary>
         public bool IsDragging { get; private set; }
 
+        /// <summary>True while ANY ready ball is being dragged to throw. BasketController reads this to ignore basket move/delete input during a throw drag — so a basket behind the ball can't be dragged along with it.</summary>
+        public static bool IsAnyDragging { get; private set; }
+
         private Vector2 _dragStartScreen;
         private Vector2 _dragCurrentScreen;
         private BallBehaviour _ball;
@@ -31,6 +34,12 @@ namespace ChillZone.Ball
         {
             _ball = GetComponent<BallBehaviour>();
             ResolveCamera();
+        }
+
+        // Safety net: if the ball is pooled/disabled mid-drag, clear the shared flag so basket input isn't locked out.
+        private void OnDisable()
+        {
+            if (IsDragging) { IsDragging = false; IsAnyDragging = false; }
         }
 
         // Camera.main can be null mid-session in AR; CameraProvider resolves + caches a fallback.
@@ -98,6 +107,7 @@ namespace ChillZone.Ball
             _dragStartScreen = position;
             _dragCurrentScreen = position;
             IsDragging = true;
+            IsAnyDragging = true;
             _dragHistory.Clear();
             _dragTimes.Clear();
             _dragHistory.Add(position);
@@ -129,6 +139,7 @@ namespace ChillZone.Ball
         private void EndDrag()
         {
             IsDragging = false;
+            IsAnyDragging = false;
             var dragVector = _dragCurrentScreen - _dragStartScreen;
             var minDrag = config ? config.minDragDistance : 80f;
             if (dragVector.magnitude < minDrag)

@@ -3,6 +3,7 @@ using ChillZone.Basket;
 using ChillZone.Content;
 using ChillZone.Core;
 using ChillZone.Core.Events;
+using ChillZone.Gameplay;
 using ChillZone.UI.Utils.Config;
 using TMPro;
 using UnityEngine;
@@ -69,6 +70,12 @@ namespace ChillZone.UI.Game
         private float _flashTimer;
         private Vector3 _flashWorldPoint;
 
+        // Easter egg: after the qwerty code is redeemed (PrefKeys.EasterEggScorePending), the HUD shows a ONE-TIME
+        // int.MaxValue flourish via a clone of the score label (real label hidden, still updated underneath). It
+        // reverts on the next basket/miss and never re-shows on reopen (the pending flag is consumed when shown).
+        private TextMeshProUGUI _maxScoreClone;
+        private bool _easterEggActive;
+
         // A multiplier must exceed this to count as a shown bonus (keeps "×1.0" noise out of the flash/banner).
         private const float MinShownMultiplier = 1.05f;
 
@@ -88,6 +95,7 @@ namespace ChillZone.UI.Game
         {
             EventBus<ScoreUpdatedEvent>.Subscribe(OnScoreUpdated);
             EventBus<BallScoredEvent>.Subscribe(OnBallScored);
+            EventBus<BallMissedEvent>.Subscribe(OnBallMissed);
             EventBus<BallThrownEvent>.Subscribe(OnBallThrown);
         }
 
@@ -95,6 +103,7 @@ namespace ChillZone.UI.Game
         {
             EventBus<ScoreUpdatedEvent>.Unsubscribe(OnScoreUpdated);
             EventBus<BallScoredEvent>.Unsubscribe(OnBallScored);
+            EventBus<BallMissedEvent>.Unsubscribe(OnBallMissed);
             EventBus<BallThrownEvent>.Unsubscribe(OnBallThrown);
         }
 
@@ -103,7 +112,9 @@ namespace ChillZone.UI.Game
             if (scoreFlashLabel) scoreFlashLabel.gameObject.SetActive(false);
             RefreshThrowModeLabel();
             RefreshMultiplierBanner();
-            UpdateScoreLabel(0, 0);
+            // Show the current run score — non-zero when a run from a previous session was restored on load.
+            UpdateScoreLabel(ScoringSystem.Instance ? ScoringSystem.Instance.CurrentRunScore : 0, 0);
+            EnsureEasterEggScore();
         }
 
         private void Update()
@@ -134,7 +145,13 @@ namespace ChillZone.UI.Game
         private void OnScoreUpdated(ScoreUpdatedEvent evt) =>
             UpdateScoreLabel(evt.TotalScore, evt.ThrowCount);
 
-        private void OnBallScored(BallScoredEvent evt) => FlashScore(evt);
+        private void OnBallScored(BallScoredEvent evt)
+        {
+            HideEasterEggScore();  // reverts on the first hit
+            FlashScore(evt);
+        }
+
+        private void OnBallMissed(BallMissedEvent evt) => HideEasterEggScore();  // ...or the first miss
 
         private void OnBallThrown(BallThrownEvent evt) =>
             RefreshThrowModeLabel();
@@ -146,6 +163,48 @@ namespace ChillZone.UI.Game
         private void UpdateScoreLabel(int score, int throws)
         {
             if (scoreLabel) scoreLabel.text = score.ToString();
+        }
+
+        // One-time flourish after the qwerty code is redeemed: overlay int.MaxValue via a clone of the score label
+        // (real label hidden but still updated underneath). The pending flag is CONSUMED here, so it shows once and
+        // never re-appears on reopen; HideEasterEggScore reverts it on the next basket/miss.
+        private void EnsureEasterEggScore()
+        {
+            if (!scoreLabel) return;
+            if (PlayerPrefs.GetInt(PrefKeys.EasterEggScorePending, 0) != 1) return;
+
+            PlayerPrefs.SetInt(PrefKeys.EasterEggScorePending, 0);
+            PlayerPrefs.Save();
+
+            if (!_maxScoreClone)
+            {
+                _maxScoreClone = Instantiate(scoreLabel, scoreLabel.transform.parent);
+                _maxScoreClone.name = "ScoreLabel_MaxEasterEgg";
+
+                // Match the original's placement so the clone sits exactly over it.
+                var src = scoreLabel.rectTransform;
+                var dst = _maxScoreClone.rectTransform;
+                dst.anchorMin = src.anchorMin;
+                dst.anchorMax = src.anchorMax;
+                dst.pivot = src.pivot;
+                dst.anchoredPosition = src.anchoredPosition;
+                dst.sizeDelta = src.sizeDelta;
+            }
+
+            _maxScoreClone.text = int.MaxValue.ToString();
+            _maxScoreClone.gameObject.SetActive(true);
+            scoreLabel.gameObject.SetActive(false);
+            _easterEggActive = true;
+        }
+
+        // Revert the flourish to the real score (on the next basket/miss). The real label was kept updated while
+        // hidden, so it shows the current score immediately.
+        private void HideEasterEggScore()
+        {
+            if (!_easterEggActive) return;
+            _easterEggActive = false;
+            if (_maxScoreClone) _maxScoreClone.gameObject.SetActive(false);
+            if (scoreLabel) scoreLabel.gameObject.SetActive(true);
         }
 
         private void FlashScore(BallScoredEvent evt)
@@ -173,10 +232,11 @@ namespace ChillZone.UI.Game
         // difficulty, basket), e.g. "+240\nDist ×1.5 · Spin ×1.8 · Basket ×2". Just "+points" when none applied.
         private static string BuildFlashText(BallScoredEvent evt)
         {
-            var bonuses = new List<string>(3);
+            var bonuses = new List<string>(4);
             AppendBonus(bonuses, "Dist", evt.DistanceMultiplier);
             AppendBonus(bonuses, DifficultyName(evt.DifficultyLabel), evt.DifficultyMultiplier);
             AppendBonus(bonuses, "Basket", evt.BasketMultiplier);
+            AppendBonus(bonuses, "Bounce", evt.WallBounceMultiplier);
 
             return bonuses.Count > 0
                 ? $"+{evt.FinalPoints}\n<size=60%>{string.Join(" · ", bonuses)}</size>"

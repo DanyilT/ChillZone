@@ -23,6 +23,7 @@ namespace ChillZone.Ball
         private bool _hasScoreZoneY;
         private bool _pendingCollisionMiss;
         private Vector3 _pendingMissPoint;
+        private float _gravityScale = 1f;
 
         // How far (metres) the ball must fall below the hoop while descending before it counts as missing
         // the basket. The margin keeps a clean shot from being flagged as it drops through the score zone.
@@ -33,6 +34,8 @@ namespace ChillZone.Ball
         public Vector3 ReleasedPosition => _releasedPosition;
         /// <summary>True while the ball is still resting at the spawn point (not yet thrown).</summary>
         public bool IsHeld => !_isReleased;
+        /// <summary>How many virtual-environment walls this ball has bounced off since being thrown (always 0 in AR). A scored shot with a bounce earns the wall-bounce multiplier.</summary>
+        public int WallBounceCount { get; private set; }
 
         #region init
 
@@ -51,6 +54,7 @@ namespace ChillZone.Ball
             _rb = GetComponent<Rigidbody>() ?? gameObject.AddComponent<Rigidbody>();
             _rb.mass = _data.mass;
             _rb.drag = _data.drag;
+            _gravityScale = _data.gravityScale;
         }
 
         private void ApplyPhysicsMaterial()
@@ -83,6 +87,7 @@ namespace ChillZone.Ball
             _isReleased  = false;
             HasResolved = false;
             _pendingCollisionMiss = false;
+            WallBounceCount = 0;
             if (_trail)
             {
                 _trail.emitting = false;
@@ -110,7 +115,7 @@ namespace ChillZone.Ball
             if (_rb)
             {
                 _rb.isKinematic = false;
-                _rb.useGravity  = true;
+                _rb.useGravity  = false;  // gravity is applied in FixedUpdate via BallData.gravityScale
             }
         }
 
@@ -164,6 +169,15 @@ namespace ChillZone.Ball
             ResolveMiss(pos);
         }
 
+        // Custom gravity so BallData.gravityScale can make a ball fall faster/slower, hover (0) or rise like a
+        // balloon (negative). Acceleration mode is mass-independent — matching real gravity, which mass can't change.
+        // Runs while the ball is a live dynamic body (in flight and after it resolves, until it's pooled).
+        private void FixedUpdate()
+        {
+            if (!_isReleased || !_rb || _rb.isKinematic) return;
+            _rb.AddForce(Physics.gravity * _gravityScale, ForceMode.Acceleration);
+        }
+
         #endregion
 
         #region scoring
@@ -186,6 +200,14 @@ namespace ChillZone.Ball
 
             // Touching the basket is never a miss.
             if (collision.collider.GetComponentInParent<BasketController>() != null) return;
+
+            // Bouncing off a virtual-environment wall/ceiling is a FEATURE, not a miss: count it (a basket scored
+            // after a bounce earns the wall-bounce multiplier) and let physics rebound the ball back into play.
+            if (collision.collider.GetComponentInParent<BounceWall>() != null)
+            {
+                WallBounceCount++;
+                return;
+            }
 
             // Hitting another ball misses this one and plays the miss effects on the other at the same time.
             // A live other ball misses itself via its own collision; an already-resolved (resting) one won't,

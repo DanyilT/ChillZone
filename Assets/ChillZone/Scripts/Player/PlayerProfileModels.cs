@@ -24,11 +24,15 @@ namespace ChillZone.Player
         public List<PlayerCodeEntry> enteredCodes = new();
         public List<PlayerContentUnlockEntry> unlockedContent = new();
         public List<PlayerActionEntry> actions = new();
+        public PlayerActiveRun activeRun = new();
 
         #region IPlayerProgress
 
-        /// <summary>Highest recorded score (bestScores is kept sorted high→low).</summary>
-        public int BestScore    => bestScores != null && bestScores.Count > 0 ? bestScores[0].score : 0;
+        /// <summary>Highest score — the best COMMITTED run OR the in-progress run, whichever is higher, so the record
+        /// (and score-based unlock criteria) reflect a live run immediately instead of only after it commits on a miss.</summary>
+        public int BestScore => Math.Max(
+            bestScores is { Count: > 0 } ? bestScores[0].score : 0,
+            activeRun is { inProgress: true } ? activeRun.score : 0);
         public int SoftCurrency => softCurrency;
 
         #endregion
@@ -49,6 +53,7 @@ namespace ChillZone.Player
             enteredCodes ??= new List<PlayerCodeEntry>();
             unlockedContent ??= new List<PlayerContentUnlockEntry>();
             actions ??= new List<PlayerActionEntry>();
+            activeRun ??= new PlayerActiveRun();
 
             version = CurrentVersion;
         }
@@ -160,6 +165,34 @@ namespace ChillZone.Player
             RecordAction(ProfileActions.ScoreRecorded, contextId, score.ToString(), timeSeconds.ToString("0.###"));
         }
 
+        #region active run (in-progress, cross-session)
+
+        /// <summary>Persist the in-progress run so it survives an app exit (restored as the current score on reopen)
+        /// and feeds the live BestScore. It's committed to bestScores separately on a miss.</summary>
+        public void UpdateActiveRun(string contextId, int score, int throws, float elapsedSeconds)
+        {
+            activeRun ??= new PlayerActiveRun();
+            activeRun.inProgress = true;
+            activeRun.contextId = contextId;
+            activeRun.score = score;
+            activeRun.throws = throws;
+            activeRun.elapsedSeconds = elapsedSeconds;
+            activeRun.updatedAtUtc = DateTime.UtcNow.ToString("o");
+            updatedAtUtc = activeRun.updatedAtUtc;
+        }
+
+        /// <summary>Clear the in-progress run (on run end / reset). BestScore then reflects only committed runs.</summary>
+        public void ClearActiveRun()
+        {
+            activeRun ??= new PlayerActiveRun();
+            activeRun.inProgress = false;
+            activeRun.score = 0;
+            activeRun.throws = 0;
+            activeRun.elapsedSeconds = 0f;
+        }
+
+        #endregion
+
         public void RecordAction(string actionType, string subjectId = null, string value = null, string value2 = null)
         {
             actions ??= new List<PlayerActionEntry>();
@@ -203,6 +236,17 @@ namespace ChillZone.Player
 
             return string.CompareOrdinal(right.recordedAtUtc, left.recordedAtUtc);
         }
+    }
+
+    [Serializable]
+    public class PlayerActiveRun
+    {
+        public bool inProgress;
+        public string contextId;
+        public int score;
+        public int throws;
+        public float elapsedSeconds;
+        public string updatedAtUtc;
     }
 
     [Serializable]

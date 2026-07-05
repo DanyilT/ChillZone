@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Ball_JugglingBall
   m_EditorClassIdentifier: 
   id: ball-jugglingball
-  displayName: JugglingBall
+  displayName: Jugglingball
   description: 
   rarity: 1
   menuSprite: {fileID: 21300000, guid: 8e968f84c1c574062a5993481306ba03, type: 3}
@@ -75,3 +75,4 @@ MonoBehaviour:
   mass: 1
   bounciness: 0.3
   drag: 0.1
+  gravityScale: 1

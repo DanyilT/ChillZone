@@ -129,15 +129,17 @@ MonoBehaviour:
   scanWindowConfig: {fileID: 11400000, guid: dec94380ce11a488b933560251f71016, type: 2}
   placeWindowConfig: {fileID: 11400000, guid: 3046d8f4d06824805a69558db5a62fef, type: 2}
   manualWindowConfig: {fileID: 11400000, guid: 7ec063d8c2cfc4bfd9eb447e45645f7c, type: 2}
+  arUnsupportedWindowConfig: {fileID: 11400000, guid: 4e7880487d05a4ec597f8614f3cf47d6, type: 2}
   raycastManager: {fileID: 0}
   planeManager: {fileID: 0}
   surfaceDetector: {fileID: 3178163691762048842}
   basketSpawnManager: {fileID: 7205576886468451812}
   arSession: {fileID: 0}
+  virtualEnvironment: {fileID: 0}
   arCamera: {fileID: 0}
   pauseTitle: Paused
   pauseHints: {fileID: 11400000, guid: f51ff9549ddce4f6fa69380e5f2e6ef4, type: 2}
-  debugStartInPlayMode: 1
+  debugStartInPlayMode: 0
   debugBasketDistanceMeters: 2
 --- !u!1 &4509125468926539139
 GameObject:

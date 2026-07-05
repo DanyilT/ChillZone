@@ -29,6 +29,8 @@ namespace ChillZone.UI.Game
         private string pickerGroupName = "picker";
         [SerializeField, Tooltip("buttonId of the pause toggle (an 'externally driven' isToggle ButtonConfig). Its icon is synced to the pause state here, so it also updates on overlay tap-to-resume / back button. Empty = no sync.")]
         private string pauseButtonId = "pause-toggle";
+        [SerializeField, Tooltip("buttonId of the virtual-environment toggle. Hidden on devices that don't support AR (they're locked into virtual mode, so the toggle would be a no-op). Empty = never hidden.")]
+        private string virtualToggleButtonId = "virtual-environment-toggle";
 
         private GameState _currentState = GameState.Welcome;
 
@@ -57,8 +59,12 @@ namespace ChillZone.UI.Game
 
         private void OnStateChanged(GameStateChangedEvent evt) => Apply(evt.Current);
 
-        // A re-render recreates the buttons (new ButtonToggleVisual), so re-sync the pause icon afterwards.
-        private void OnButtonsRendered() => SyncPauseIcon(_currentState);
+        // A re-render recreates the buttons, so re-sync the pause icon + virtual-toggle visibility afterwards.
+        private void OnButtonsRendered()
+        {
+            SyncPauseIcon(_currentState);
+            SyncVirtualToggleVisibility();
+        }
 
         private void Apply(GameState state)
         {
@@ -83,6 +89,18 @@ namespace ChillZone.UI.Game
             }
 
             SyncPauseIcon(state);
+            SyncVirtualToggleVisibility();
+        }
+
+        // On devices without AR support the game is locked into the virtual environment, so the virtual-env
+        // toggle would be a no-op — hide it. Re-applied after every render (a re-render recreates the button).
+        private void SyncVirtualToggleVisibility()
+        {
+            if (!buttonManager || string.IsNullOrEmpty(virtualToggleButtonId)) return;
+            if (!GameFlowController.Instance || GameFlowController.Instance.ArSupported) return;
+
+            var go = buttonManager.GetRenderedButton(virtualToggleButtonId);
+            if (go) go.SetActive(false);
         }
 
         // Keep the pause button's toggle icon reflecting the pause state. The pause ButtonConfig is an

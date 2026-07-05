@@ -51,6 +51,8 @@ namespace ChillZone.Ball
         public float mass = 1f;
         public float bounciness = 0.3f;
         public float drag = 0.1f;
+        [Tooltip("Gravity multiplier applied in flight: 1 = normal fall, 0 = floats in place, NEGATIVE = rises like a balloon. (Real gravity is mass-independent, so use THIS — not mass — to change how the ball falls/floats. Pair a small negative value with high drag for a gentle balloon.)")]
+        public float gravityScale = 1f;
 
         #endregion
 

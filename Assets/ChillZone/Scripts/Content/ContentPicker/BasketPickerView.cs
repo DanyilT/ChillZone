@@ -60,6 +60,7 @@ namespace ChillZone.Basket
             }
 
             ContentManager.Instance?.Select(basket);
+            if (BasketSpawnManager.Instance) BasketSpawnManager.Instance.ReplaceBasketWithSelected();
 
             Close();
         }

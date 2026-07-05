@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4b43b3e032414a25a4129a2d4ddc312, type: 3}
+  m_Name: Basket_TrashCan
+  m_EditorClassIdentifier: 
+  id: basket-trashcan
+  displayName: Trashcan
+  description: 
+  rarity: 2
+  menuSprite: {fileID: 21300000, guid: 0b16f7d441c4c417da73f6bcb1d67403, type: 3}
+  lockedSprite: {fileID: 0}
+  uiAccentColor: {r: 0.3137255, g: 0.49803922, b: 0.39607844, a: 1}
+  unlockCriteria:
+    type: 1
+    requiredScore: 500
+    requiredCurrency: 0
+    achievementId: 
+    requiredCode: 
+  prefab: {fileID: 1205636996531381734, guid: 8a3fa4bd4c85447b0af8ffe95da50321, type: 3}
+  scoreMultiplier: 1.2

@@ -43,6 +43,8 @@ namespace ChillZone.UI.ContentPicker.Config
         public TextConfig nameTextConfig;
         [Tooltip("Rarity outline width on the name text (0..1)."), Range(0f, 1f)]
         public float nameOutlineWidth = 0.2f;
+        [Tooltip("Max rows the name wraps to; the name area reserves this many rows so every cell keeps a consistent height (icons stay aligned). Overflow beyond it is ellipsised."), Range(1, 4)]
+        public int nameMaxRows = 2;
 
         private void Reset()
         {
@@ -97,9 +99,17 @@ namespace ChillZone.UI.ContentPicker.Config
             var nameText = unlocked || data.unlockCriteria == null ? data.displayName : data.unlockCriteria.Describe();
             var tmp = UIRenderUtils.RenderText(cell.transform, nameText, nameTextConfig, "Name").GetComponent<TextMeshProUGUI>();
             tmp.color = Color.white;
-            // Take only the space left by the fixed icon and truncate a too-long name with an ellipsis, rather
-            // than growing and pushing the icon smaller. (min height is 0, so the layout shrinks the name first.)
+            // Fixed font size (no auto-shrink, so every cell's name reads at the same size), wrapping onto at most
+            // nameMaxRows lines and ellipsising beyond that. The name area RESERVES that many rows (LayoutElement
+            // below) so 1- and 2-line names keep a consistent cell height and the icons stay aligned.
+            var rows = Mathf.Max(1, nameMaxRows);
+            tmp.enableAutoSizing = false;
+            tmp.enableWordWrapping = true;
             tmp.overflowMode = TextOverflowModes.Ellipsis;
+            tmp.maxVisibleLines = rows;
+            var nameLe = tmp.gameObject.AddComponent<LayoutElement>();
+            nameLe.minHeight = nameLe.preferredHeight = tmp.fontSize * 1.4f * rows; // reserve ~rows lines at the fixed size
+            nameLe.flexibleHeight = 0f;
             // Rarity outline. The default font material has the outline feature OFF (width/colour render nothing),
             // so assign an outline-enabled preset first. TMP also re-applies its outlineColor / outlineWidth
             // PROPERTIES onto the material each rebuild, so a direct material write alone gets reset — set both ways.

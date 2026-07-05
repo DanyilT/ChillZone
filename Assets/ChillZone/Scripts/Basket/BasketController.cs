@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using ChillZone.Ball;
 using ChillZone.Basket.Utils;
 using ChillZone.Core;
 using ChillZone.Gameplay;
@@ -25,7 +26,7 @@ namespace ChillZone.Basket
         /// <summary>Raised right before the basket destroys itself on a double-tap.</summary>
         public event Action Deleted;
 
-        private SurfaceRaycaster _raycaster;
+        private ISurfaceRaycaster _raycaster;
         private Renderer[] _renderers;
         private bool _isDragging;
         private float _lastTapTime;
@@ -34,7 +35,7 @@ namespace ChillZone.Basket
         #region public api
 
         /// <summary>Called by BasketSpawnManager right after the basket is instantiated.</summary>
-        public void Initialize(SurfaceRaycaster raycaster)
+        public void Initialize(ISurfaceRaycaster raycaster)
         {
             _raycaster = raycaster;
             _renderers = GetComponentsInChildren<Renderer>(); // Cache after Instantiate so RealWorldScaler (runs in Awake) has set the scale.
@@ -42,9 +43,13 @@ namespace ChillZone.Basket
             if (TryGetComponent<Rigidbody>(out var rb)) rb.isKinematic = true;
         }
 
+        /// <summary>The last surface point this basket was grounded on (world). Lets a replacement basket be re-grounded at the same spot.</summary>
+        public Vector3 GroundSurfacePoint { get; private set; }
+
         /// <summary>Places the basket so its lowest visible point rests on the surface point (plus a tiny clearance), instead of sinking the centred pivot into the plane.</summary>
         public void GroundOn(Vector3 surfacePoint)
         {
+            GroundSurfacePoint = surfacePoint;
             transform.position = surfacePoint;
             if (TryGetWorldBounds(out var bounds))
                 transform.position += Vector3.up * (surfacePoint.y - bounds.min.y + surfaceClearance);
@@ -55,6 +60,10 @@ namespace ChillZone.Basket
         {
             var pointer = Pointer.current;
             if (pointer == null) return;
+
+            // While the player is dragging the ready ball to throw, don't let a basket (even one behind the ball)
+            // steal the input — cancel any in-progress basket drag and ignore taps until the throw drag ends.
+            if (BallController.IsAnyDragging) { _isDragging = false; return; }
 
             var position = pointer.position.ReadValue();
 

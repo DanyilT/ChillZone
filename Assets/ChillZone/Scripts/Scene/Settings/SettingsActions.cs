@@ -147,6 +147,7 @@ namespace ChillZone.Scene.Settings
 
         /// <summary>Code that toggles developer mode (case-insensitive).</summary>
         private const string DeveloperCode = "dev";
+        private const string EasterEggCode = "qwerty";
 
         private void RegisterDefaults()
         {
@@ -190,7 +191,16 @@ namespace ChillZone.Scene.Settings
             if (!PlayerProfileManager.Instance) return false;
 
             var result = PlayerProfileManager.Instance.RegisterCode(trimmed);
-            if (result.Accepted) AnnounceCodeUnlock(result);
+            if (result.Accepted)
+            {
+                AnnounceCodeUnlock(result);
+                // Redeeming the easter-egg code arms the one-time max-score flourish shown next time in the game HUD.
+                if (string.Equals(trimmed, EasterEggCode, StringComparison.OrdinalIgnoreCase))
+                {
+                    PlayerPrefs.SetInt(PrefKeys.EasterEggScorePending, 1);
+                    PlayerPrefs.Save();
+                }
+            }
             return result.Accepted;
         }
 

@@ -16,10 +16,10 @@ MonoBehaviour:
   - achievementId: qwerty
     title: Easter Egg
     description: Legacy easter egg. You'll naver figure it out!
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: dabf5eae4eeba460f8c2bdee2f32289e, type: 3}
     unlockType: 3
     targetValue: 0
-    relatedBallId: 
+    relatedBallId: ball-crumpled-paper
     relatedBasketId: 
     currencyReward: 0
     relatedCode: qwerty

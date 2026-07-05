@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Ball_TennisBall
   m_EditorClassIdentifier: 
   id: ball-tennisball
-  displayName: TennisBall
+  displayName: Tennis ball
   description: 
   rarity: 3
   menuSprite: {fileID: 21300000, guid: 5fcbb1e46e4b241588d2226150cdc4a5, type: 3}
@@ -75,3 +75,4 @@ MonoBehaviour:
   mass: 1
   bounciness: 0.5
   drag: 0.1
+  gravityScale: 1

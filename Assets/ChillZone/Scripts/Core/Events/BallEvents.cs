@@ -17,6 +17,7 @@ namespace ChillZone.Core.Events
         public float DistanceMultiplier;
         public float DifficultyMultiplier;
         public float BasketMultiplier;
+        public float WallBounceMultiplier;   // >1 when the ball bounced off a virtual-env wall before scoring
         public string DifficultyLabel;   // e.g. "Straight", "Aimed", "Spin ×1.8"
         public Vector3 HitPoint;
     }

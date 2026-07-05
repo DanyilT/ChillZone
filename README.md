@@ -5,7 +5,7 @@
 [![Get it on Google Play](https://img.shields.io/badge/Google%20Play-Download-414141?logo=google-play&logoColor=white)](https://play.google.com/store/apps/details?id=com.DanyT.ChillZone)
 ![Platform](https://img.shields.io/badge/platform-Android-3DDC84?logo=android&logoColor=white)
 ![Unity](https://img.shields.io/badge/Unity-2022.3.62f3-000000?logo=unity&logoColor=white)
-![Version](https://img.shields.io/badge/version-2.0.0-blue)
+[![Version](https://img.shields.io/github/v/release/DanyilT/ChillZone?logo=github)](https://github.com/DanyilT/ChillZone/releases/latest)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 > **ChillZone 2** is the ground-up **2.0** remake of ChillZone. The core game is unchanged — place a hoop on a real surface and shoot — but everything under the hood was rebuilt from scratch for real physics, unlockable content, and much cleaner, more scalable code. On the Play Store it ships as the same ChillZone (v2.x.x).

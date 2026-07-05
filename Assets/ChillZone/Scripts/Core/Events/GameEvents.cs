@@ -21,4 +21,9 @@ namespace ChillZone.Core.Events
     public struct ResetBallRequestedEvent
     {
     }
+
+    /// <summary>Raised by UI to toggle the virtual (camera-off) environment on/off; handled by GameFlowController.</summary>
+    public struct ToggleVirtualEnvironmentRequestedEvent
+    {
+    }
 }

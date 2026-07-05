@@ -16,6 +16,15 @@ namespace ChillZone.Core
         /// <summary>Set once the first-run manual/help window has been dismissed.</summary>
         public const string ManualViewed = "ManualViewed";
 
+        /// <summary>Set once the first-run "AR not supported → virtual mode" notice has been dismissed (shown only once, like the manual).</summary>
+        public const string ArUnsupportedNoticeViewed = "ArUnsupportedNoticeViewed";
+
+        /// <summary>1 while the user has the virtual (camera-off) environment toggled on, so the choice is restored across scene loads (back from Settings) and app restarts.</summary>
+        public const string VirtualEnvironment = "VirtualEnvironment";
+
+        /// <summary>1 when the qwerty easter-egg code was just redeemed, so the game shows the one-time max-score flourish on the next HUD entry, then clears it.</summary>
+        public const string EasterEggScorePending = "EasterEggScorePending";
+
         /// <summary>
         /// Left-handed mode. Read per-scene by ButtonManager to mirror its buttons horizontally
         /// (ButtonManagers aren't DontDestroyOnLoad — each scene has its own — so the shared

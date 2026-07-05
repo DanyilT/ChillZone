@@ -23,15 +23,28 @@ namespace ChillZone.Basket
         [SerializeField, Tooltip("Basket registry — fallback source for the first/default basket when no ContentManager selection is available.")]
         private UnlockableContentRegistry registry;
 
+        public static BasketSpawnManager Instance { get; private set; }
+
         private ARRaycastManager _raycastManager;
         private ARPlaneManager _planeManager;
-        private SurfaceRaycaster _raycaster;
+        private ISurfaceRaycaster _raycaster;
 
         private GameObject _basket;
         private BasketController _controller;
         private Action _onDestroyed;
 
         #region setup
+
+        private void Awake()
+        {
+            if (Instance != null && Instance != this) { Destroy(gameObject); return; }
+            Instance = this;
+        }
+
+        private void OnDestroy()
+        {
+            if (Instance == this) Instance = null;
+        }
 
         public void Initialize(ARRaycastManager raycastManager, ARPlaneManager planeManager = null)
         {
@@ -41,6 +54,15 @@ namespace ChillZone.Basket
         }
 
         public GameObject GetBasket() => _basket;
+
+        /// <summary>Switch placement/move to the virtual ground plane (camera-off mode), clamped to a ±halfExtent square so the basket stays on the ground. Safe to call while no basket exists.</summary>
+        public void UseVirtualGround(float groundHeight = 0f, float halfExtent = 0f) => _raycaster = new VirtualGroundRaycaster(groundHeight, halfExtent);
+
+        /// <summary>Switch placement/move back to AR detected planes (rebuilds the AR raycaster from the managers passed to Initialize).</summary>
+        public void UseARSurface()
+        {
+            if (_raycastManager) _raycaster = new SurfaceRaycaster(_raycastManager, _planeManager, maxSurfaceTiltDegrees);
+        }
 
         #endregion
 
@@ -69,7 +91,7 @@ namespace ChillZone.Basket
 
         /// <summary>
         /// Editor/debug helper: drop the basket a fixed distance straight in front of the camera (no surface
-        /// raycast — XR Simulation planes are unreliable). Placed at eye level and turned to face the camera.
+        /// raycast — XR Simulation planes are unreliable), with the prefab's own authored rotation.
         /// Returns true once placed (or if one already exists). Used by GameFlowController's debug auto-start.
         /// </summary>
         public bool PlaceBasketInFrontOfCamera(float distanceMeters)
@@ -87,9 +109,8 @@ namespace ChillZone.Basket
 
             var position = cam.transform.position + forward * distanceMeters;
             position.y = 0f;
-            var rotation = Quaternion.LookRotation(-forward, Vector3.up); // face back toward the camera
 
-            PlaceBasket(prefab, position, rotation, ground: false);
+            PlaceBasket(prefab, position, ground: false);
             return true;
         }
 
@@ -111,23 +132,17 @@ namespace ChillZone.Basket
             if (_basket || !prefab || _raycaster == null) return false;
             if (!_raycaster.TryRaycast(screenPosition, out var hitPose)) return false;
 
-            PlaceBasket(prefab, hitPose.position, hitPose.rotation, ground: true);
+            PlaceBasket(prefab, hitPose.position, ground: true);
             return true;
         }
 
-        // Instantiate the basket and wire its controller. `ground` rests its base on the point (for real
-        // surface placement); the debug in-front spawn skips grounding since there's no floor to sit on.
-        private void PlaceBasket(GameObject prefab, Vector3 position, Quaternion rotation, bool ground)
+        // Instantiate the basket with the prefab's OWN authored rotation (the placement pose's rotation is
+        // ignored) and wire its controller. `ground` rests its base on the point (for real surface placement);
+        // the debug in-front spawn skips grounding since there's no floor to sit on.
+        private void PlaceBasket(GameObject prefab, Vector3 position, bool ground)
         {
-            _basket = Instantiate(prefab, position, rotation);
-
-            _controller = _basket.GetComponent<BasketController>();
-            if (!_controller)
-            {
-                Debug.LogError("BasketSpawnManager: basket prefab is missing a BasketController; adding one.", _basket);
-                _controller = _basket.AddComponent<BasketController>();
-            }
-
+            _basket = Instantiate(prefab, position, prefab.transform.rotation);
+            _controller = _basket.GetComponent<BasketController>() ?? _basket.AddComponent<BasketController>();
             _controller.Initialize(_raycaster);
             _controller.Deleted += OnBasketDeleted;
             if (ground) _controller.GroundOn(position);
@@ -149,6 +164,20 @@ namespace ChillZone.Basket
             Destroy(_basket);
             _basket = null;
             _controller = null;
+        }
+
+        /// <summary>Swaps the placed basket for the currently-selected one at the same grounded spot. No-op if none is placed.
+        /// Call AFTER ContentManager.Select so <see cref="ResolveBasketPrefab"/> returns the new pick.</summary>
+        public void ReplaceBasketWithSelected()
+        {
+            if (!_basket) return;
+
+            var prefab = ResolveBasketPrefab();
+            if (!prefab) return;
+
+            var surfacePoint = _controller ? _controller.GroundSurfacePoint : _basket.transform.position;
+            RemoveBasket();
+            PlaceBasket(prefab, surfacePoint, ground: true);
         }
 
         #endregion

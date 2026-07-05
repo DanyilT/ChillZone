@@ -56,7 +56,7 @@ MonoBehaviour:
   buttonBehaviour:
     blockRaycasts: 1
   actionEntry:
-    actionType: 6
+    actionType: 7
     sceneName: 
     sceneIndex: -1
     url: 
