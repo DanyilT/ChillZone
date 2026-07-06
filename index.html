@@ -57,11 +57,11 @@
         <div class="device-stack" id="deviceStack">
           <div class="phone device-slide is-front">
             <span class="phone-glow"></span>
-            <img class="throwAnim" data-seq="tennis" src="assets/screenshots/screenshot-tennisball-spawn.png" alt="ChillZone gameplay — a tennis ball thrown into the bin in AR" />
+            <img class="throwAnim" data-seq="tennis" src="assets/v2.1.0/screenshots/screenshot-tennisball-spawn.png" alt="ChillZone gameplay — a tennis ball thrown into the bin in AR" />
           </div>
           <div class="phone device-slide is-back">
             <span class="phone-glow"></span>
-            <img class="throwAnim" data-seq="basketball" src="assets/screenshots/screenshot-basketball-spawn.png" alt="ChillZone gameplay — a basketball arcing into the bin in AR" />
+            <img class="throwAnim" data-seq="basketball" src="assets/v2.1.0/screenshots/screenshot-basketball-spawn.png" alt="ChillZone gameplay — a basketball arcing into the bin in AR" />
           </div>
         </div>
         <div class="device-dots" id="deviceDots" aria-label="Switch ball">
@@ -189,25 +189,25 @@
         <div class="shots-images">
           <figure class="shot-phone">
             <div class="phone phone-sm">
-              <video src="assets/screenrecordings/screenrecording-ball-picker.mp4" autoplay muted loop playsinline poster="assets/screenshots/screenshot-ball-picker.png"></video>
+              <video src="assets/v2.1.0/screenrecordings/screenrecording-ball-picker.mp4" autoplay muted loop playsinline poster="assets/v2.1.0/screenshots/screenshot-ball-picker.png"></video>
             </div>
             <figcaption>Unlock balls &amp; baskets of every rarity</figcaption>
           </figure>
           <figure class="shot-phone">
             <div class="phone phone-sm">
-              <img src="assets/screenshots/screenshot-basketball-spawn.png" alt="Lining up a basketball shot at the bin" loading="lazy" />
+              <img src="assets/v2.1.0/screenshots/screenshot-basketball-spawn.png" alt="Lining up a basketball shot at the bin" loading="lazy" />
             </div>
             <figcaption>Line up the shot and flick it in</figcaption>
           </figure>
           <figure class="shot-phone">
             <div class="phone phone-sm">
-              <img src="assets/screenshots/screenshot-tennisball-spawn.png" alt="Tennis ball ready to throw at the bin" loading="lazy" />
+              <img src="assets/v2.1.0/screenshots/screenshot-tennisball-spawn.png" alt="Tennis ball ready to throw at the bin" loading="lazy" />
             </div>
             <figcaption>Swap balls — tennis, basketball &amp; more</figcaption>
           </figure>
           <figure class="shot-phone">
             <div class="phone phone-sm">
-              <img src="assets/screenshots/screenshot-settings.png" alt="ChillZone settings screen" loading="lazy" />
+              <img src="assets/v2.0.0/screenshots/screenshot-settings.png" alt="ChillZone settings screen" loading="lazy" />
             </div>
             <figcaption>Tune audio, controls &amp; throw modes</figcaption>
           </figure>
@@ -215,13 +215,13 @@
         <div class="shots-videos">
           <figure class="shot-phone">
             <div class="phone phone-sm">
-              <video src="assets/screenrecordings/compressed/screenrecording-hit.mp4" autoplay muted loop playsinline preload="metadata"></video>
+              <video src="assets/v2.1.0/screenrecordings/screenrecording-hit.mp4" autoplay muted loop playsinline preload="metadata"></video>
             </div>
             <figcaption>Nothing but a win</figcaption>
           </figure>
           <figure class="shot-phone">
             <div class="phone phone-sm">
-              <video src="assets/screenrecordings/compressed/screenrecording-miss.mp4" autoplay muted loop playsinline preload="metadata"></video>
+              <video src="assets/v2.1.0/screenrecordings/screenrecording-miss.mp4" autoplay muted loop playsinline preload="metadata"></video>
             </div>
             <figcaption>…or not. Line up the next one</figcaption>
           </figure>
@@ -247,7 +247,7 @@
           </div>
         </div>
         <figure class="made-shot">
-          <img src="assets/screenshot-editor.png" alt="ChillZone open in the Unity editor" loading="lazy" />
+          <img id="editorShot" src="assets/v2.1.0/screenshots-editor/screenshot-editor.png" alt="ChillZone open in the Unity editor" />
           <figcaption>The full project open in the Unity editor — MIT-licensed on GitHub.</figcaption>
         </figure>
         <a class="btn btn-ghost made-cta" href="https://github.com/DanyilT/ChillZone" target="_blank" rel="noopener">★ Explore the source</a>
@@ -313,11 +313,11 @@
     // hero: loop each ball's throw sequence + a swipeable device stack
     (function () {
       const SEQS = {
-        basketball: ["assets/screenshots/screenshot-basketball-spawn.png"].concat(
-          [1, 2, 3, 4, 5, 6, 7, 9].map((n) => "assets/screenshots/screenshot-basketball-trhown-sequence_" + n + ".png")
+        basketball: ["assets/v2.1.0/screenshots/screenshot-basketball-spawn.png"].concat(
+          [1, 2, 3, 4, 5, 6, 7, 9].map((n) => "assets/v2.1.0/screenshots/screenshot-basketball-trhown-sequence_" + n + ".png")
         ),
-        tennis: ["assets/screenshots/screenshot-tennisball-spawn.png"].concat(
-                [1, 2, 3].map((n) => "assets/screenshots/screenshot-tennisball-thrown-sequence_" + n + ".png")
+        tennis: ["assets/v2.1.0/screenshots/screenshot-tennisball-spawn.png"].concat(
+          [1, 2, 3, 4, 5, 6, 7, 9].map((n) => "assets/v2.1.0/screenshots/screenshot-tennisball-thrown-sequence_" + n + ".png")
         ),
       };
       const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -361,23 +361,24 @@
         dots.forEach((d, idx) => d.classList.toggle("is-active", idx === front));
       };
       dots.forEach((d, idx) => d.addEventListener("click", () => setFront(idx)));
-      let x0 = null, swiped = false;
-      slides.forEach((s, idx) =>
-        s.addEventListener("click", () => {
-          if (swiped) { swiped = false; return; } // a swipe already handled it
-          if (!s.classList.contains("is-front")) setFront(idx);
-        })
-      );
+      // handle tap + swipe in pointerup: with pointer capture a plain `click` on the captured
+      // element is retargeted to the stack on desktop, so it never reached the tapped slide
+      let x0 = null, downIdx = -1;
       stack.addEventListener("pointerdown", (e) => {
         x0 = e.clientX;
-        swiped = false;
+        const s = e.target.closest(".device-slide");
+        downIdx = s ? slides.indexOf(s) : -1;
         try { stack.setPointerCapture(e.pointerId); } catch (_) {} // keep move/up even if the finger leaves
       });
       stack.addEventListener("pointerup", (e) => {
         if (x0 === null) return;
         const dx = e.clientX - x0;
         x0 = null;
-        if (Math.abs(dx) > 40) { swiped = true; setFront(front + (dx < 0 ? 1 : -1)); }
+        if (Math.abs(dx) > 40) {
+          setFront(front + (dx < 0 ? 1 : -1));          // swipe left / right
+        } else if (downIdx !== -1 && downIdx !== front) {
+          setFront(downIdx);                            // tap a back device → bring it forward
+        }
       });
     })();
 
@@ -456,6 +457,39 @@
           });
         });
       });
+    })();
+
+    // "how it was made": scrub the Unity-editor screenshot through its frames as the
+    // section scrolls by (proportional to the viewport, so screen size doesn't matter).
+    // The final, un-numbered image is the last frame and holds once it's in view.
+    (function () {
+      const img = document.getElementById("editorShot");
+      if (!img) return;
+      const FRAMES = [1, 2, 3, 4, 5, 6, 7, 8]
+        .map((n) => "assets/v2.1.0/screenshots-editor/screenshot-editor_" + n + ".png")
+        .concat(["assets/v2.1.0/screenshots-editor/screenshot-editor.png"]); // final = no number
+      FRAMES.forEach((src) => { const im = new Image(); im.src = src; }); // preload to avoid flicker
+
+      if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        img.src = FRAMES[FRAMES.length - 1]; // no scrub — just show the finished shot
+        return;
+      }
+
+      let cur = -1, ticking = false;
+      const update = () => {
+        ticking = false;
+        const vh = window.innerHeight || document.documentElement.clientHeight;
+        const top = img.getBoundingClientRect().top;
+        // 0 when the image top is at the bottom of the viewport, reaching 1 by the time
+        // it is ~20% from the top — then it clamps and holds on the final frame
+        const p = (vh - top) / (vh * 0.8);
+        const idx = Math.max(0, Math.min(FRAMES.length - 1, Math.round(p * (FRAMES.length - 1))));
+        if (idx !== cur) { cur = idx; img.src = FRAMES[idx]; }
+      };
+      const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } };
+      addEventListener("scroll", onScroll, { passive: true });
+      addEventListener("resize", onScroll, { passive: true });
+      update();
     })();
   </script>
 </body>

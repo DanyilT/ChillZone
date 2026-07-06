@@ -13,14 +13,16 @@ branch** — it intentionally shares no history with `main` (which holds the Uni
 | Path                                     | Purpose                                                                                                              |
 |------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
 | `index.html`                             | Landing page — hero (swipeable device stack), video, features, how‑to‑play, screenshots, "how it was made", download |
+| `changelog.html`                         | Changelog — thin shell; cards are rendered from the GitHub Releases API                                              |
 | `privacy.html` / `terms.html`            | Legal pages — thin shells that render from JSON                                                                      |
 | `css/style.css`                          | All styles                                                                                                           |
 | `js/components.js`                       | Shared `<site-header>` / `<site-footer>` / `<site-footer-slim>` web components (no build, no `fetch`)                |
+| `js/changelog.js`                        | Fetches every GitHub release and renders notes, screenshots, and download links (APK + source zip)                   |
 | `legal/legal.js`                         | Renders a legal page from its JSON (deep‑linkable headings + copy‑link buttons)                                      |
 | `legal/privacy.json`, `legal/terms.json` | Legal copy + `version` / `effectiveDate` — **edit these, not the HTML**                                              |
-| `assets/screenshots/`                    | 18:9 phone screenshots + throw‑sequence frames (used for the hero animation)                                         |
-| `assets/screenrecordings/`               | Gameplay clips (`compressed/` holds the web‑optimised hit/miss videos)                                               |
-| `assets/screenshot-editor.png`           | Unity‑editor shot for the "how it was made" section                                                                  |
+| `assets/<version>/screenshots/`          | Per‑release phone screenshots + throw‑sequence frames (hero animation, gallery)                                      |
+| `assets/<version>/screenrecordings/`     | Per‑release gameplay clips (`compressed/` holds the web‑optimised hit/miss videos)                                   |
+| `assets/v2.1.0/screenshots-editor/`      | Unity‑editor frames for the scroll‑scrubbed "how it was made" sequence (final frame is the un‑numbered one)          |
 | `assets/og-image.jpg`                    | Social‑share image (1200×630)                                                                                        |
 | `assets/play-qr.png`                     | Scan‑to‑install QR of the Google Play link (shown on hover, non‑Android desktop)                                     |
 | `.nojekyll`                              | Tells GitHub Pages to serve files as‑is (no Jekyll build)                                                            |
@@ -42,9 +44,9 @@ npx qrcode "https://play.google.com/store/apps/details?id=com.DanyT.ChillZone" -
 ```bash
 # OG image — three screenshots composited on the brand background (needs ImageMagick)
 magick -size 1200x630 xc:'#0a0e0c' \
-  \( assets/screenshots/screenshot-tennisball-spawn.png -resize x520 \) -gravity center -geometry -300+0 -composite \
-  \( assets/screenshots/screenshot-ball-picker.png      -resize x520 \) -gravity center -geometry +0+0   -composite \
-  \( assets/screenshots/screenshot-basketball-spawn.png -resize x520 \) -gravity center -geometry +300+0 -composite \
+  \( assets/v2.1.0/screenshots/screenshot-tennisball-spawn.png -resize x520 \) -gravity center -geometry -300+0 -composite \
+  \( assets/v2.1.0/screenshots/screenshot-ball-picker.png      -resize x520 \) -gravity center -geometry +0+0   -composite \
+  \( assets/v2.1.0/screenshots/screenshot-basketball-spawn.png -resize x520 \) -gravity center -geometry +300+0 -composite \
   assets/og-image.jpg
 ```
 

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Changelog — ChillZone</title>
+  <meta name="description" content="Every ChillZone release — what changed, screenshots, and downloads (APK + source), pulled live from GitHub." />
+  <meta name="robots" content="index, follow" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script defer src="js/components.js"></script>
+  <script defer src="js/changelog.js"></script>
+  <noscript><style>.reveal{opacity:1;transform:none}</style></noscript>
+</head>
+<body>
+
+  <site-header></site-header>
+
+  <!-- Release cards are rendered from the GitHub Releases API by changelog.js -->
+  <main class="changelog" data-repo="DanyilT/ChillZone">
+    <div class="container cl-wrap">
+      <a class="back" href="index.html">← Back to home</a>
+      <h1>Changelog</h1>
+      <p class="cl-intro">
+        Every ChillZone release, pulled live from
+        <a href="https://github.com/DanyilT/ChillZone/releases" target="_blank" rel="noopener">GitHub</a>.
+        Grab the APK or the source for any version below.
+      </p>
+      <div id="cl-list" class="changelog-list">
+        <p class="cl-loading">Loading releases…</p>
+        <noscript>
+          This page loads releases with JavaScript. With JavaScript disabled, see them on
+          <a href="https://github.com/DanyilT/ChillZone/releases" target="_blank" rel="noopener">GitHub</a>.
+        </noscript>
+      </div>
+    </div>
+  </main>
+
+  <site-footer-slim></site-footer-slim>
+</body>
+</html>

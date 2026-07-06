@@ -31,6 +31,7 @@
               <a href="${to("video")}">Video</a>
               <a href="${to("how")}">How to play</a>
               <a href="${to("shots")}">Screenshots</a>
+              <a href="changelog.html">Changelog</a>
               <a class="btn btn-primary nav-cta" href="${PLAY}" target="_blank" rel="noopener">Get the app</a>
             </nav>
           </div>
@@ -65,6 +66,7 @@
               <div>
                 <h4>Project</h4>
                 <ul>
+                  <li><a href="changelog.html">Changelog</a></li>
                   <li><a href="${REPO}" target="_blank" rel="noopener">Source code</a></li>
                   <li><a href="${GITHUB}" target="_blank" rel="noopener">Developer</a></li>
                   <li><a href="${COFFEE}" target="_blank" rel="noopener">Buy me a coffee</a></li>

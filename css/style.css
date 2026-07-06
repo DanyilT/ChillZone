@@ -815,6 +815,148 @@ section { padding: 96px 0; }
   padding: 1px 7px;
 }
 
+/* ---------- Changelog ---------- */
+/* self-contained base chrome (was borrowed from .legal, but .legal a turned
+   the button labels green — including the unreadable APK button) */
+.changelog { padding: 60px 0 40px; }
+.cl-wrap { max-width: 860px; margin: 0 auto; }
+.changelog .back { color: var(--muted); font-size: 0.92rem; display: inline-flex; align-items: center; gap: 7px; margin-bottom: 28px; }
+.changelog .back:hover { color: var(--green); }
+.changelog h1 {
+  font-family: var(--display);
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  letter-spacing: -0.03em;
+  margin: 0 0 8px;
+}
+.cl-intro { color: var(--muted); font-size: 1rem; margin: 0 0 34px; }
+.cl-intro a, .cl-error a, .cl-empty a { color: var(--green); text-decoration: underline; text-underline-offset: 3px; }
+.cl-loading, .cl-error, .cl-empty { color: var(--muted); }
+
+.cl-release {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 26px 28px;
+  margin: 0 0 22px;
+  scroll-margin-top: 88px; /* clear the sticky nav when linked to via #tag */
+}
+.cl-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 14px 20px;
+  flex-wrap: wrap;
+}
+.cl-title { font-family: var(--display); font-size: 1.5rem; letter-spacing: -0.02em; margin: 0; }
+.cl-tags { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 9px; }
+.cl-tag-ver {
+  position: relative;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--green);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 2px 11px;
+  cursor: pointer;
+  transition: background 0.18s ease, border-color 0.18s ease;
+}
+.cl-tag-ver:hover { background: rgba(52, 209, 126, 0.12); border-color: rgba(52, 209, 126, 0.45); }
+.cl-tag-ver:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+.cl-tag-ver.copied { border-color: var(--green); }
+/* brief confirmation bubble above the pill (keeps the version text visible) */
+.cl-tag-ver.copied::after {
+  content: "Copied";
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #06120b;
+  background: var(--green);
+  padding: 2px 8px;
+  border-radius: 6px;
+  white-space: nowrap;
+  pointer-events: none;
+}
+.cl-latest, .cl-pre {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  border-radius: 999px;
+  padding: 3px 10px;
+}
+.cl-latest { color: #06120b; background: var(--accent); }
+.cl-pre { color: #f4d06a; background: rgba(244, 208, 106, 0.12); border: 1px solid rgba(244, 208, 106, 0.35); }
+.cl-date { color: var(--muted); font-size: 0.9rem; white-space: nowrap; padding-top: 4px; }
+
+.cl-notes { margin-top: 18px; color: #cdd4ce; overflow-wrap: anywhere; } /* break long URLs so they don't overflow the card */
+.cl-notes > :first-child { margin-top: 0; }
+.cl-notes .cl-h { font-family: var(--display); color: var(--text); letter-spacing: -0.01em; margin: 22px 0 10px; }
+.cl-notes h3.cl-h { font-size: 1.14rem; }
+.cl-notes h4.cl-h, .cl-notes h5.cl-h { font-size: 1rem; }
+.cl-notes p { margin: 10px 0; }
+.cl-notes ul { padding-left: 20px; display: grid; gap: 7px; margin: 10px 0; }
+.cl-notes li { color: #cdd4ce; }
+.cl-notes a { color: var(--green); text-decoration: underline; text-underline-offset: 3px; }
+.cl-notes code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.88em;
+  color: var(--green);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1px 6px;
+}
+.cl-notes blockquote {
+  margin: 12px 0;
+  padding: 8px 16px;
+  border-left: 3px solid var(--border);
+  border-radius: 0 10px 10px 0;
+  background: var(--surface);
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+.cl-media { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin: 16px 0; }
+.cl-media img {
+  max-height: 340px;
+  width: auto;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--bg-2);
+}
+/* release-specified widths (e.g. width="70%"/"22%"): keep them on one row in the
+   given proportions and let the whole row scale down with the container. Equal
+   flex-shrink over percentage bases shrinks every image by the same factor, so
+   the ratio is preserved; height:auto keeps each image's aspect ratio. */
+.cl-media-sized { flex-wrap: nowrap; align-items: flex-start; gap: 10px; }
+.cl-media-sized img { max-height: none; height: auto; flex: 0 1 auto; min-width: 0; }
+
+.cl-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 22px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+.cl-actions .btn { padding: 11px 18px; font-size: 0.92rem; }
+.cl-size { font-weight: 500; opacity: 0.75; }
+.cl-ghlink { display: inline-flex; align-items: center; gap: 7px; color: var(--muted); font-size: 0.9rem; margin-left: auto; }
+.cl-ghlink:hover { color: var(--green); }
+
+@media (max-width: 560px) {
+  .cl-release { padding: 20px 18px; }
+  .cl-actions .btn { flex: 1 1 auto; justify-content: center; }
+  .cl-ghlink { margin-left: 0; width: 100%; justify-content: center; }
+}
+
 /* ---------- Reveal on scroll ---------- */
 .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
 .reveal.in { opacity: 1; transform: none; }
